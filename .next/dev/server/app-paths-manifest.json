@@ -1,0 +1,4 @@
+{
+  "/(marketing)/chatzo/page": "app/(marketing)/chatzo/page.js",
+  "/page": "app/page.js"
+}

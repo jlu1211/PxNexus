@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -rn \"navy-\" \"C:\\\\Users\\\\nezum\\\\Desktop\\\\PxNexus\\\\components\" \"C:\\\\Users\\\\nezum\\\\Desktop\\\\PxNexus\\\\app\" --include=\"*.tsx\" --include=\"*.css\" 2>/dev/null | grep -v node_modules | head -5)",
+      "Bash(grep -rn \"text-gold\\\\|bg-gold\\\\|border-gold\" \"C:\\\\Users\\\\nezum\\\\Desktop\\\\PxNexus\\\\components\" \"C:\\\\Users\\\\nezum\\\\Desktop\\\\PxNexus\\\\app\" --include=\"*.tsx\" 2>/dev/null | grep -v node_modules | head -5)",
+      "Bash(ls C:/Users/nezum/Desktop/PxNexus/app/\\\\\\(marketing\\\\\\))",
+      "Bash(ls C:/Users/nezum/Desktop/PxNexus/app/\\\\\\(marketing\\\\\\)/chatzo)"
+    ]
+  }
+}
