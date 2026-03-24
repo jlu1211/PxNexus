@@ -3,15 +3,17 @@
 import { createContext, useContext, useState, ReactNode } from 'react'
 import { translations, Locale } from './i18n'
 
+type SiteTranslations = (typeof translations)[Locale]
+
 interface I18nContextValue {
   locale: Locale
-  t: typeof translations['ja']
+  t: SiteTranslations
   setLocale: (locale: Locale) => void
 }
 
 const I18nContext = createContext<I18nContextValue>({
   locale: 'ja',
-  t: translations.en,
+  t: translations.ja,
   setLocale: () => {},
 })
 
@@ -22,7 +24,7 @@ export function I18nProvider({ children }: { children: ReactNode }) {
     <I18nContext.Provider
       value={{
         locale,
-        t: translations[locale] as typeof translations['ja'],
+        t: translations[locale],
         setLocale,
       }}
     >

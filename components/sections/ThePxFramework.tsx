@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, type CSSProperties } from 'react'
 import { useI18n } from '@/lib/i18n-context'
 
 const pillarIcons = [
@@ -18,7 +18,15 @@ const pillarIcons = [
   </svg>,
 ]
 
-function TiltCard({ children, className }: { children: React.ReactNode; className?: string }) {
+function TiltCard({
+  children,
+  className,
+  style,
+}: {
+  children: React.ReactNode
+  className?: string
+  style?: CSSProperties
+}) {
   const cardRef = useRef<HTMLDivElement>(null)
   const spotRef = useRef<HTMLDivElement>(null)
   let rafId = 0
@@ -52,7 +60,11 @@ function TiltCard({ children, className }: { children: React.ReactNode; classNam
       ref={cardRef}
       onMouseMove={handleMove}
       onMouseLeave={handleLeave}
-      style={{ willChange: 'transform', transition: 'transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.4s ease' }}
+      style={{
+        willChange: 'transform',
+        transition: 'transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.4s ease',
+        ...style,
+      }}
       className={className}
     >
       {/* Spotlight layer */}
@@ -114,7 +126,7 @@ export default function ThePxFramework() {
                 className={`reveal group relative rounded-2xl overflow-hidden ${
                   featured ? 'bg-forest-800' : 'bg-forest-700'
                 }`}
-                style={{ transitionDelay: `${i * 0.1}s` } as React.CSSProperties}
+                style={{ transitionDelay: `${i * 0.1}s` }}
               >
                 {featured && (
                   <div className="absolute inset-0 rounded-2xl ring-1 ring-sage/25 pointer-events-none z-20" />

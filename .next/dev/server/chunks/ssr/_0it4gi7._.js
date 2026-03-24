@@ -1533,7 +1533,7 @@ const pillarIcons = [
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0))
 ];
-function TiltCard({ children, className }) {
+function TiltCard({ children, className, style }) {
     const cardRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
     const spotRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
     let rafId = 0;
@@ -1565,7 +1565,8 @@ function TiltCard({ children, className }) {
         onMouseLeave: handleLeave,
         style: {
             willChange: 'transform',
-            transition: 'transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.4s ease'
+            transition: 'transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.4s ease',
+            ...style
         },
         className: className,
         children: [
@@ -1574,14 +1575,14 @@ function TiltCard({ children, className }) {
                 className: "absolute inset-0 pointer-events-none rounded-2xl z-10 transition-none"
             }, void 0, false, {
                 fileName: "[project]/components/sections/ThePxFramework.tsx",
-                lineNumber: 59,
+                lineNumber: 71,
                 columnNumber: 7
             }, this),
             children
         ]
     }, void 0, true, {
         fileName: "[project]/components/sections/ThePxFramework.tsx",
-        lineNumber: 51,
+        lineNumber: 59,
         columnNumber: 5
     }, this);
 }
@@ -1615,17 +1616,17 @@ function ThePxFramework() {
                         transform: "rotate(-30 160 32)"
                     }, void 0, false, {
                         fileName: "[project]/components/sections/ThePxFramework.tsx",
-                        lineNumber: 87,
+                        lineNumber: 99,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/sections/ThePxFramework.tsx",
-                    lineNumber: 86,
+                    lineNumber: 98,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/sections/ThePxFramework.tsx",
-                lineNumber: 85,
+                lineNumber: 97,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1641,12 +1642,12 @@ function ThePxFramework() {
                                     children: t.framework.eyebrow
                                 }, void 0, false, {
                                     fileName: "[project]/components/sections/ThePxFramework.tsx",
-                                    lineNumber: 95,
+                                    lineNumber: 107,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/sections/ThePxFramework.tsx",
-                                lineNumber: 94,
+                                lineNumber: 106,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -1654,7 +1655,7 @@ function ThePxFramework() {
                                 children: t.framework.headline
                             }, void 0, false, {
                                 fileName: "[project]/components/sections/ThePxFramework.tsx",
-                                lineNumber: 99,
+                                lineNumber: 111,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1662,13 +1663,13 @@ function ThePxFramework() {
                                 children: t.framework.sub
                             }, void 0, false, {
                                 fileName: "[project]/components/sections/ThePxFramework.tsx",
-                                lineNumber: 102,
+                                lineNumber: 114,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/sections/ThePxFramework.tsx",
-                        lineNumber: 93,
+                        lineNumber: 105,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1685,7 +1686,7 @@ function ThePxFramework() {
                                         className: "absolute inset-0 rounded-2xl ring-1 ring-sage/25 pointer-events-none z-20"
                                     }, void 0, false, {
                                         fileName: "[project]/components/sections/ThePxFramework.tsx",
-                                        lineNumber: 120,
+                                        lineNumber: 132,
                                         columnNumber: 19
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1695,7 +1696,7 @@ function ThePxFramework() {
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/components/sections/ThePxFramework.tsx",
-                                        lineNumber: 124,
+                                        lineNumber: 136,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1709,7 +1710,7 @@ function ThePxFramework() {
                                                         children: pillarIcons[i]
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/sections/ThePxFramework.tsx",
-                                                        lineNumber: 133,
+                                                        lineNumber: 145,
                                                         columnNumber: 21
                                                     }, this),
                                                     featured && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1717,13 +1718,13 @@ function ThePxFramework() {
                                                         children: "Core"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/sections/ThePxFramework.tsx",
-                                                        lineNumber: 139,
+                                                        lineNumber: 151,
                                                         columnNumber: 23
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/sections/ThePxFramework.tsx",
-                                                lineNumber: 132,
+                                                lineNumber: 144,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1734,7 +1735,7 @@ function ThePxFramework() {
                                                 children: pillar.letter
                                             }, void 0, false, {
                                                 fileName: "[project]/components/sections/ThePxFramework.tsx",
-                                                lineNumber: 146,
+                                                lineNumber: 158,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -1742,7 +1743,7 @@ function ThePxFramework() {
                                                 children: pillar.label
                                             }, void 0, false, {
                                                 fileName: "[project]/components/sections/ThePxFramework.tsx",
-                                                lineNumber: 151,
+                                                lineNumber: 163,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1750,7 +1751,7 @@ function ThePxFramework() {
                                                 children: pillar.tagline
                                             }, void 0, false, {
                                                 fileName: "[project]/components/sections/ThePxFramework.tsx",
-                                                lineNumber: 154,
+                                                lineNumber: 166,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1758,7 +1759,7 @@ function ThePxFramework() {
                                                 children: pillar.description
                                             }, void 0, false, {
                                                 fileName: "[project]/components/sections/ThePxFramework.tsx",
-                                                lineNumber: 157,
+                                                lineNumber: 169,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -1782,12 +1783,12 @@ function ThePxFramework() {
                                                                     strokeLinejoin: "round"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/sections/ThePxFramework.tsx",
-                                                                    lineNumber: 167,
+                                                                    lineNumber: 179,
                                                                     columnNumber: 27
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/sections/ThePxFramework.tsx",
-                                                                lineNumber: 166,
+                                                                lineNumber: 178,
                                                                 columnNumber: 25
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1795,18 +1796,18 @@ function ThePxFramework() {
                                                                 children: f
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/sections/ThePxFramework.tsx",
-                                                                lineNumber: 169,
+                                                                lineNumber: 181,
                                                                 columnNumber: 25
                                                             }, this)
                                                         ]
                                                     }, f, true, {
                                                         fileName: "[project]/components/sections/ThePxFramework.tsx",
-                                                        lineNumber: 164,
+                                                        lineNumber: 176,
                                                         columnNumber: 23
                                                     }, this))
                                             }, void 0, false, {
                                                 fileName: "[project]/components/sections/ThePxFramework.tsx",
-                                                lineNumber: 162,
+                                                lineNumber: 174,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1816,25 +1817,25 @@ function ThePxFramework() {
                                                 }
                                             }, void 0, false, {
                                                 fileName: "[project]/components/sections/ThePxFramework.tsx",
-                                                lineNumber: 175,
+                                                lineNumber: 187,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/sections/ThePxFramework.tsx",
-                                        lineNumber: 130,
+                                        lineNumber: 142,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, pillar.label, true, {
                                 fileName: "[project]/components/sections/ThePxFramework.tsx",
-                                lineNumber: 112,
+                                lineNumber: 124,
                                 columnNumber: 15
                             }, this);
                         })
                     }, void 0, false, {
                         fileName: "[project]/components/sections/ThePxFramework.tsx",
-                        lineNumber: 108,
+                        lineNumber: 120,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1844,24 +1845,24 @@ function ThePxFramework() {
                             children: t.framework.footnote
                         }, void 0, false, {
                             fileName: "[project]/components/sections/ThePxFramework.tsx",
-                            lineNumber: 185,
+                            lineNumber: 197,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/sections/ThePxFramework.tsx",
-                        lineNumber: 184,
+                        lineNumber: 196,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/sections/ThePxFramework.tsx",
-                lineNumber: 91,
+                lineNumber: 103,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/sections/ThePxFramework.tsx",
-        lineNumber: 79,
+        lineNumber: 91,
         columnNumber: 5
     }, this);
 }
