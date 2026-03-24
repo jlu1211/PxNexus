@@ -112,22 +112,19 @@ body {
 .btn-shimmer::after {
   content: '';
   position: absolute;
-  top: -50%;
-  left: -75%;
-  width: 50%;
-  height: 200%;
-  background: linear-gradient(
-    105deg,
-    transparent 40%,
-    rgba(255, 255, 255, 0.12) 50%,
-    transparent 60%
+  inset: 0;
+  background: radial-gradient(
+    circle at var(--shimmer-x, 50%) 50%,
+    rgba(255, 255, 255, 0.18) 0%,
+    transparent 65%
   );
-  transform: skewX(-15deg);
-  transition: left 0.5s ease;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
 }
 
 .btn-shimmer:hover::after {
-  left: 125%;
+  opacity: 1;
 }
 
 /* ─── Amber divider line ─── */
@@ -178,14 +175,37 @@ body {
   100% { top: 100%; }
 }
 
+/* ─── Pipeline data flow packets ─── */
+.data-packet {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #2dd4bf;
+  box-shadow: 0 0 8px 2px rgba(45, 212, 191, 0.6);
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0%;
+  animation: travelDown 4.8s ease-in-out infinite;
+}
+
+@keyframes travelDown {
+  0%   { top: 0%;   opacity: 0; }
+  8%   { opacity: 1; }
+  92%  { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
 /* ─── Reduced motion: respect user preference ─── */
 @media (prefers-reduced-motion: reduce) {
   .blob-animate,
   .nexus-line,
   .nexus-dot,
-  .btn-shimmer::after {
+  .btn-shimmer::after,
+  .data-packet {
     animation: none !important;
     transition: none !important;
+    opacity: 0 !important;
   }
   html {
     scroll-behavior: auto;

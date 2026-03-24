@@ -1,6 +1,7 @@
 'use client'
 
 import { chatzoTranslations, ChatZOLocale } from '@/lib/i18n-chatzo'
+import ChatZOGridPulse from '@/components/ui/ChatZOGridPulse'
 
 interface Props { locale: ChatZOLocale }
 
@@ -11,12 +12,8 @@ export default function ChatZOHero({ locale }: Props) {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-zinc-950 pt-20">
       {/* ─── Background: grid + glow ─── */}
       <div className="absolute inset-0 pointer-events-none">
-        {/* Grid */}
-        <div className="absolute inset-0 opacity-[0.035]"
-          style={{
-            backgroundImage: 'linear-gradient(rgba(45,212,191,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(45,212,191,0.6) 1px, transparent 1px)',
-            backgroundSize: '52px 52px',
-          }} />
+        {/* Animated grid pulse canvas */}
+        <ChatZOGridPulse className="absolute inset-0 w-full h-full pointer-events-none" />
         {/* Center teal glow */}
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] opacity-[0.12]"
           style={{ background: 'radial-gradient(ellipse, #2dd4bf 0%, transparent 70%)' }} />

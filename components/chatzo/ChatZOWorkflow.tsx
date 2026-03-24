@@ -52,9 +52,13 @@ export default function ChatZOWorkflow({ locale }: Props) {
 
         {/* Pipeline: vertical on mobile, visual flow on desktop */}
         <div className="relative">
-          {/* Vertical connector line */}
+          {/* Vertical connector line + data flow packets */}
           <div className="absolute left-6 lg:left-1/2 top-0 bottom-0 w-px -translate-x-1/2 hidden sm:block"
-            style={{ background: 'linear-gradient(to bottom, transparent 0%, rgba(45,212,191,0.2) 5%, rgba(45,212,191,0.2) 95%, transparent 100%)' }} />
+            style={{ background: 'linear-gradient(to bottom, transparent 0%, rgba(45,212,191,0.2) 5%, rgba(45,212,191,0.2) 95%, transparent 100%)' }}>
+            {[0, 1, 2, 3].map((i) => (
+              <div key={i} className="data-packet" style={{ animationDelay: `${i * 1.2}s` }} />
+            ))}
+          </div>
 
           <div className="space-y-4 lg:space-y-0">
             {t.steps.map((step, i) => {

@@ -1,12 +1,14 @@
 'use client'
 
-import { useState, useEffect, useRef, type ReactNode } from 'react'
+import { useState, useEffect, useRef, useMemo, type ReactNode } from 'react'
 import Image from 'next/image'
 import { chatzoTranslations, ChatZOLocale } from '@/lib/i18n-chatzo'
 
 interface Props { locale: ChatZOLocale }
 
 const STEP_DURATION = 3500
+const JSON_STEP_DURATION = 14000
+const JSON_STEP_INDEX = 1
 
 // ─── Demo data (structured extraction aligned with sample.jpg pipeline) ───────
 
@@ -233,7 +235,8 @@ function OCRPanel() {
   )
 }
 
-function JSONPanel() {
+function JSONPanel({ revealed, fullText }: { revealed: number; fullText: string }) {
+  const isStreaming = revealed < fullText.length
   return (
     <div className="h-full overflow-auto font-mono text-[11px] leading-relaxed">
       <div className="flex items-center gap-2 mb-3 pb-2 border-b border-violet-500/15">
@@ -242,7 +245,13 @@ function JSONPanel() {
           GPT-4o · JSON Schema Extraction
         </span>
       </div>
-      <JsonNode value={DEMO_EXTRACTION} indent={0} />
+      {isStreaming ? (
+        <pre className="text-white/60 whitespace-pre-wrap break-all text-[11px] leading-relaxed">
+          {fullText.slice(0, revealed)}<span className="text-violet-400 animate-pulse">▍</span>
+        </pre>
+      ) : (
+        <JsonNode value={DEMO_EXTRACTION} indent={0} />
+      )}
     </div>
   )
 }
@@ -363,7 +372,10 @@ export default function ChatZODemo({ locale }: Props) {
   const [step, setStep]               = useState(0)
   const [paused, setPaused]           = useState(false)
   const [progressKey, setProgressKey] = useState(0)
-  const sectionRef = useRef<HTMLElement>(null)
+  const [jsonRevealed, setJsonRevealed] = useState(0)
+  const sectionRef   = useRef<HTMLElement>(null)
+  const jsonRafRef   = useRef<number>(0)
+  const fullJsonText = useMemo(() => JSON.stringify(DEMO_EXTRACTION, null, 2), [])
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -374,12 +386,32 @@ export default function ChatZODemo({ locale }: Props) {
     return () => observer.disconnect()
   }, [])
 
+  // JSON typewriter effect
+  useEffect(() => {
+    cancelAnimationFrame(jsonRafRef.current)
+    if (step !== JSON_STEP_INDEX) {
+      setJsonRevealed(0)
+      return
+    }
+    const reduced = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (reduced) { setJsonRevealed(fullJsonText.length); return }
+    let rev = 0
+    const tick = () => {
+      rev = Math.min(rev + 3, fullJsonText.length)
+      setJsonRevealed(rev)
+      if (rev < fullJsonText.length) jsonRafRef.current = requestAnimationFrame(tick)
+    }
+    jsonRafRef.current = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(jsonRafRef.current)
+  }, [step, fullJsonText])
+
   useEffect(() => {
     if (paused) return
+    const duration = step === JSON_STEP_INDEX ? JSON_STEP_DURATION : STEP_DURATION
     const timer = setTimeout(() => {
       setStep((s) => (s + 1) % STEPS.length)
       setProgressKey((k) => k + 1)
-    }, STEP_DURATION)
+    }, duration)
     return () => clearTimeout(timer)
   }, [step, paused, progressKey])
 
@@ -548,7 +580,7 @@ export default function ChatZODemo({ locale }: Props) {
               {/* Panel body */}
               <div className="h-[calc(100%-2.5rem)] p-4">
                 {step === 0 && <OCRPanel />}
-                {step === 1 && <JSONPanel />}
+                {step === 1 && <JSONPanel revealed={jsonRevealed} fullText={fullJsonText} />}
                 {step === 2 && <ValidatePanel />}
                 {step === 3 && <CSVPanel />}
               </div>
@@ -562,7 +594,7 @@ export default function ChatZODemo({ locale }: Props) {
                   className="h-full rounded-full"
                   style={{
                     background: current.color,
-                    animation: `progressFill ${STEP_DURATION}ms linear forwards`,
+                    animation: `progressFill ${step === JSON_STEP_INDEX ? JSON_STEP_DURATION : STEP_DURATION}ms linear forwards`,
                   }}
                 />
               )}

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { useI18n } from '@/lib/i18n-context'
+import SignalRadar from '@/components/ui/SignalRadar'
 
 // ─── Animated counter ───────────────────────────────────────────
 function parseStatValue(raw: string) {
@@ -122,6 +123,11 @@ export default function TrustBanner() {
               <div className="font-body text-xs text-cream/30">{stat.sub}</div>
             </div>
           ))}
+        </div>
+
+        {/* Signal Radar */}
+        <div className="reveal flex justify-center mb-16">
+          <SignalRadar inView={statsInView} />
         </div>
 
         {/* Testimonials */}

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { useI18n } from '@/lib/i18n-context'
+import NeuralParticleCanvas from '@/components/ui/NeuralParticleCanvas'
 
 function TypewriterText({ text, delay = 0 }: { text: string; delay?: number }) {
   const [displayed, setDisplayed] = useState('')
@@ -37,7 +38,8 @@ function TypewriterText({ text, delay = 0 }: { text: string; delay?: number }) {
 export default function HeroSection() {
   const { t } = useI18n()
   const sectionRef = useRef<HTMLElement>(null)
-  const glowRef = useRef<HTMLDivElement>(null)
+  const glowRef    = useRef<HTMLDivElement>(null)
+  const mousePos   = useRef({ x: -9999, y: -9999 })
 
   useEffect(() => {
     const el = sectionRef.current
@@ -54,7 +56,7 @@ export default function HeroSection() {
       if (orb2) orb2.style.transform = `translateY(${y * -0.08}px)`
     }
 
-    // Mouse-tracking torch glow
+    // Mouse-tracking torch glow + particle repulsion shared position
     const onMouseMove = (e: MouseEvent) => {
       cancelAnimationFrame(rafId)
       rafId = requestAnimationFrame(() => {
@@ -64,6 +66,7 @@ export default function HeroSection() {
         const y = ((e.clientY - rect.top) / rect.height) * 100
         glowRef.current.style.background =
           `radial-gradient(600px circle at ${x}% ${y}%, rgba(200,151,90,0.07) 0%, rgba(92,143,114,0.04) 40%, transparent 70%)`
+        mousePos.current = { x: e.clientX - rect.left, y: e.clientY - rect.top }
       })
     }
 
@@ -81,6 +84,9 @@ export default function HeroSection() {
       ref={sectionRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-forest-950"
     >
+      {/* ─── Neural particle network ─── */}
+      <NeuralParticleCanvas mouseRef={mousePos} />
+
       {/* ─── Mouse-tracking torch glow ─── */}
       <div
         ref={glowRef}

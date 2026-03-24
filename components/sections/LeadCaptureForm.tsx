@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { useI18n } from '@/lib/i18n-context'
 import { cn } from '@/lib/utils'
+import { useMagneticButton } from '@/lib/hooks/useMagneticButton'
 
 export default function LeadCaptureForm() {
   const { t } = useI18n()
@@ -11,7 +12,8 @@ export default function LeadCaptureForm() {
   const [selectedIntents, setSelectedIntents] = useState<string[]>([])
   const [focusedField, setFocusedField] = useState<string | null>(null)
   const [messageValue, setMessageValue] = useState('')
-  const sectionRef = useRef<HTMLElement>(null)
+  const sectionRef  = useRef<HTMLElement>(null)
+  const magneticRef = useMagneticButton<HTMLButtonElement>()
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -207,7 +209,7 @@ export default function LeadCaptureForm() {
                 </div>
 
                 {/* Submit */}
-                <button type="submit" disabled={loading}
+                <button type="submit" disabled={loading} ref={magneticRef}
                   className="btn-shimmer w-full font-body text-sm font-semibold px-6 py-3.5 rounded-xl bg-forest-800 text-cream hover:bg-forest-700 active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-2.5 disabled:opacity-60 shadow-sm shadow-forest-900/20">
                   {loading ? (
                     <>

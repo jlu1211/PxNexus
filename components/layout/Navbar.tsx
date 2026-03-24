@@ -224,6 +224,14 @@ export default function Navbar() {
               </button>
             )
           })}
+          <a href="/chatzo" onClick={() => setMenuOpen(false)}
+            className={cn(
+              'font-body text-sm py-2.5 flex items-center gap-2.5 transition-colors border-l-2 pl-3',
+              mobileLinkInactive
+            )}>
+            ChatZO
+            <span className="font-body text-[9px] px-1.5 py-0.5 rounded-full bg-teal-500/15 text-teal-400 border border-teal-500/25 font-semibold">AI</span>
+          </a>
           <div className="pt-3 mt-1 border-t border-sage/10">
             <a href="#contact" onClick={() => setMenuOpen(false)}
               className={cn('block w-full text-center font-body text-sm font-medium px-5 py-3 rounded-lg', mobileDemoBg)}>

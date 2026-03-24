@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react'
 import { chatzoTranslations, ChatZOLocale } from '@/lib/i18n-chatzo'
+import { useMagneticButton } from '@/lib/hooks/useMagneticButton'
 
 interface Props { locale: ChatZOLocale }
 
@@ -9,7 +10,8 @@ export default function ChatZOCTA({ locale }: Props) {
   const t = chatzoTranslations[locale].cta
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
-  const sectionRef = useRef<HTMLElement>(null)
+  const sectionRef  = useRef<HTMLElement>(null)
+  const magneticRef = useMagneticButton<HTMLButtonElement>()
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -108,8 +110,8 @@ export default function ChatZOCTA({ locale }: Props) {
                   ).map((o) => <option key={o} className="bg-zinc-900">{o}</option>)}
                 </select>
               </div>
-              <button type="submit" disabled={loading}
-                className="w-full font-body text-sm font-semibold px-6 py-3.5 rounded-xl bg-teal-500 text-zinc-900 hover:bg-teal-400 transition-all duration-300 flex items-center justify-center gap-2.5 disabled:opacity-60">
+              <button type="submit" disabled={loading} ref={magneticRef}
+                className="btn-shimmer w-full font-body text-sm font-semibold px-6 py-3.5 rounded-xl bg-teal-500 text-zinc-900 hover:bg-teal-400 transition-all duration-300 flex items-center justify-center gap-2.5 disabled:opacity-60">
                 {loading ? (
                   <>
                     <svg className="w-4 h-4 animate-spin" viewBox="0 0 24 24" fill="none">

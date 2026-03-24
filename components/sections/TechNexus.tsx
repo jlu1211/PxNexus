@@ -102,6 +102,113 @@ function FlowArrow({ active, reverse }: { active: boolean; reverse?: boolean }) 
   )
 }
 
+/* ─── Scroll-locked stats carousel ─── */
+function StatsCarousel({
+  stats,
+  inView,
+}: {
+  stats: Array<{ value: string; label: string }>
+  inView: boolean
+}) {
+  const [panelIndex, setPanelIndex] = useState(0)
+  const [revealed, setRevealed] = useState([false, false, false])
+  const outerRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    const isDesktop = window.innerWidth >= 1024
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+    if (!isDesktop || reduced) {
+      setRevealed([true, true, true])
+      return
+    }
+
+    const onScroll = () => {
+      const outer = outerRef.current
+      if (!outer) return
+      const rect = outer.getBoundingClientRect()
+      const scrollDist = outer.offsetHeight - window.innerHeight
+      if (scrollDist <= 0) return
+      const progress = Math.max(0, Math.min(1, -rect.top / scrollDist))
+      const idx = Math.min(2, Math.floor(progress * 3))
+      setPanelIndex(idx)
+      setRevealed((prev) => {
+        const next = [...prev] as [boolean, boolean, boolean]
+        for (let i = 0; i <= idx; i++) next[i] = true
+        return next
+      })
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true })
+    onScroll()
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  const panelColors = ['text-sage', 'text-amber', 'text-sage']
+
+  return (
+    <div ref={outerRef} className="lg:h-[calc(100vh+480px)] relative">
+      {/* Desktop: sticky scroll-lock */}
+      <div className="lg:sticky lg:top-0 lg:h-screen lg:flex lg:items-center">
+        <div className="w-full">
+          {/* Mobile: simple grid */}
+          <div className="lg:hidden grid grid-cols-3 gap-px rounded-2xl overflow-hidden border border-sage/10">
+            {stats.map((s, i) => (
+              <div key={s.label}
+                className={cn('relative px-6 py-6 text-center transition-colors duration-300',
+                  i === 1 ? 'bg-forest-800/60' : 'bg-forest-800/30', 'hover:bg-forest-800/70 group')}>
+                {i > 0 && <div className="absolute left-0 top-4 bottom-4 w-px bg-sage/10" />}
+                <div className={cn('font-display text-3xl font-medium mb-1', panelColors[i])}>{s.value}</div>
+                <div className="font-body text-xs text-cream/35">{s.label}</div>
+              </div>
+            ))}
+          </div>
+
+          {/* Desktop: animated panels */}
+          <div className="hidden lg:block">
+            <div className="grid grid-cols-3 gap-4">
+              {stats.map((s, i) => (
+                <div key={s.label}
+                  className={cn(
+                    'relative px-8 py-10 rounded-2xl border text-center transition-all duration-700',
+                    panelIndex === i
+                      ? 'border-sage/30 bg-forest-800/70 shadow-xl shadow-sage/5 scale-105'
+                      : 'border-sage/10 bg-forest-800/30 scale-100',
+                    revealed[i] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                  )}
+                  style={{ transitionDelay: revealed[i] ? '0s' : `${i * 0.15}s` }}>
+                  <div className={cn('font-display text-5xl lg:text-6xl font-light mb-3 transition-colors duration-300', panelColors[i])}>
+                    {s.value}
+                  </div>
+                  <div className="font-body text-sm text-cream/50 mb-3">{s.label}</div>
+                  {panelIndex === i && (
+                    <div className="absolute bottom-3 left-1/2 -translate-x-1/2">
+                      <div className="w-6 h-0.5 rounded-full"
+                        style={{ background: i === 1 ? 'rgba(200,151,90,0.6)' : 'rgba(92,143,114,0.6)' }} />
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+            {/* Scroll hint */}
+            <div className={cn(
+              'mt-6 flex items-center justify-center gap-2 transition-all duration-500',
+              panelIndex < 2 ? 'opacity-60' : 'opacity-0'
+            )}>
+              <div className="w-1 h-1 rounded-full bg-sage/40" />
+              <span className="font-body text-[10px] text-cream/30 tracking-widest uppercase">
+                scroll to reveal
+              </span>
+              <div className="w-1 h-1 rounded-full bg-sage/40" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 /* ─── Feature pill / tab ─── */
 const featureIcons = [
   // Smart match
@@ -421,27 +528,9 @@ export default function TechNexus() {
           </div>
         </div>
 
-        {/* ─── Stats bar ─── */}
-        <div className="reveal mb-16">
-          <div className="grid grid-cols-3 gap-px rounded-2xl overflow-hidden border border-sage/10">
-            {t.tech.stats.map((s, i) => (
-              <div key={s.label}
-                className={cn('relative px-6 py-6 text-center transition-colors duration-300',
-                  i === 1 ? 'bg-forest-800/60' : 'bg-forest-800/30',
-                  'hover:bg-forest-800/70 group'
-                )}>
-                {/* Dividers */}
-                {i > 0 && <div className="absolute left-0 top-4 bottom-4 w-px bg-sage/10" />}
-                <div className={cn('font-display text-3xl lg:text-4xl font-medium mb-1 transition-colors duration-300',
-                  i === 1 ? 'text-amber' : 'text-sage')}>
-                  {s.value}
-                </div>
-                <div className="font-body text-xs text-cream/35 group-hover:text-cream/55 transition-colors duration-300">
-                  {s.label}
-                </div>
-              </div>
-            ))}
-          </div>
+        {/* ─── Stats carousel (scroll-locked on desktop) ─── */}
+        <div className="mb-16">
+          <StatsCarousel stats={t.tech.stats} inView={inView} />
         </div>
 
         {/* ─── Feature list (hover to highlight nodes) ─── */}
