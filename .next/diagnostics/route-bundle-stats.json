@@ -1,12 +1,12 @@
 [
   {
     "route": "/chatzo",
-    "firstLoadUncompressedJsBytes": 624378,
+    "firstLoadUncompressedJsBytes": 624890,
     "firstLoadChunkPaths": [
-      ".next\\static\\chunks\\0iw2i2eilbdrm.js",
+      ".next\\static\\chunks\\0i_pkbt5m76uh.js",
       ".next\\static\\chunks\\0d3tkj33oycf2.js",
       ".next\\static\\chunks\\02stu2xenbplp.js",
-      ".next\\static\\chunks\\0n3_6-p6.ur2j.js",
+      ".next\\static\\chunks\\05_oxdc9wrbwh.js",
       ".next\\static\\chunks\\0ursk~c~2p0vl.js",
       ".next\\static\\chunks\\0no1b_s-81nqh.js",
       ".next\\static\\chunks\\0h4bq73pogmtb.js",
@@ -15,12 +15,12 @@
   },
   {
     "route": "/",
-    "firstLoadUncompressedJsBytes": 603088,
+    "firstLoadUncompressedJsBytes": 604224,
     "firstLoadChunkPaths": [
-      ".next\\static\\chunks\\0iw2i2eilbdrm.js",
+      ".next\\static\\chunks\\0i_pkbt5m76uh.js",
       ".next\\static\\chunks\\0d3tkj33oycf2.js",
       ".next\\static\\chunks\\02stu2xenbplp.js",
-      ".next\\static\\chunks\\0zkx1zj1yyj._.js",
+      ".next\\static\\chunks\\0cj12-daghuzq.js",
       ".next\\static\\chunks\\0ursk~c~2p0vl.js",
       ".next\\static\\chunks\\0no1b_s-81nqh.js",
       ".next\\static\\chunks\\0h4bq73pogmtb.js",
@@ -29,9 +29,9 @@
   },
   {
     "route": "/_not-found",
-    "firstLoadUncompressedJsBytes": 526148,
+    "firstLoadUncompressedJsBytes": 526268,
     "firstLoadChunkPaths": [
-      ".next\\static\\chunks\\0iw2i2eilbdrm.js",
+      ".next\\static\\chunks\\0i_pkbt5m76uh.js",
       ".next\\static\\chunks\\0d3tkj33oycf2.js",
       ".next\\static\\chunks\\0ursk~c~2p0vl.js",
       ".next\\static\\chunks\\0no1b_s-81nqh.js",

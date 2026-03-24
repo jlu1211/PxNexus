@@ -132,6 +132,11 @@ export default function HeroSection() {
 
       {/* ─── Content ─── */}
       <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-12 text-center pt-20">
+        {/* Company Name */}
+        <div className="mb-6 opacity-0" style={{ animation: 'fadeUp 0.6s ease 0.1s forwards' }}>
+          <span className="font-display text-2xl sm:text-3xl tracking-[0.4em] uppercase text-sage-muted/80">PxNexus</span>
+        </div>
+
         {/* Badge */}
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-sage/25 bg-sage/8 mb-10 opacity-0"
           style={{ animation: 'fadeUp 0.6s ease 0.3s forwards' }}>

@@ -130,6 +130,7 @@ function Navbar() {
     const mobileLinkActive = isLight ? 'text-forest-900 border-sage' : 'text-cream border-sage';
     const mobileLinkInactive = isLight ? 'text-forest-700/55 border-transparent hover:text-forest-900 hover:border-sage/40' : 'text-cream/55 border-transparent hover:text-cream hover:border-sage/40';
     const mobileDemoBg = isLight ? 'bg-sage text-white' : 'bg-sage text-forest-900';
+    const mobileChatZO = isLight ? 'text-teal-800 border-teal-600/45 hover:text-teal-950 hover:border-teal-600' : 'text-teal-400 border-teal-500/40 hover:text-teal-300 hover:border-teal-400/55';
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("header", {
         className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])('fixed top-0 left-0 right-0 z-50 transition-all duration-300', headerBg),
         children: [
@@ -143,12 +144,12 @@ function Navbar() {
                     }
                 }, void 0, false, {
                     fileName: "[project]/components/layout/Navbar.tsx",
-                    lineNumber: 110,
+                    lineNumber: 113,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/layout/Navbar.tsx",
-                lineNumber: 109,
+                lineNumber: 112,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
@@ -174,7 +175,7 @@ function Navbar() {
                                             strokeOpacity: "0.5"
                                         }, void 0, false, {
                                             fileName: "[project]/components/layout/Navbar.tsx",
-                                            lineNumber: 122,
+                                            lineNumber: 125,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("line", {
@@ -188,7 +189,7 @@ function Navbar() {
                                             className: "transition-opacity group-hover:opacity-60"
                                         }, void 0, false, {
                                             fileName: "[project]/components/layout/Navbar.tsx",
-                                            lineNumber: 123,
+                                            lineNumber: 126,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("line", {
@@ -202,7 +203,7 @@ function Navbar() {
                                             className: "transition-opacity group-hover:opacity-60"
                                         }, void 0, false, {
                                             fileName: "[project]/components/layout/Navbar.tsx",
-                                            lineNumber: 125,
+                                            lineNumber: 128,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
@@ -212,18 +213,18 @@ function Navbar() {
                                             fill: "#c8975a"
                                         }, void 0, false, {
                                             fileName: "[project]/components/layout/Navbar.tsx",
-                                            lineNumber: 127,
+                                            lineNumber: 130,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/layout/Navbar.tsx",
-                                    lineNumber: 121,
+                                    lineNumber: 124,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/layout/Navbar.tsx",
-                                lineNumber: 120,
+                                lineNumber: 123,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -234,7 +235,7 @@ function Navbar() {
                                         children: "Px"
                                     }, void 0, false, {
                                         fileName: "[project]/components/layout/Navbar.tsx",
-                                        lineNumber: 131,
+                                        lineNumber: 134,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -242,19 +243,19 @@ function Navbar() {
                                         children: "Nexus"
                                     }, void 0, false, {
                                         fileName: "[project]/components/layout/Navbar.tsx",
-                                        lineNumber: 132,
+                                        lineNumber: 135,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/layout/Navbar.tsx",
-                                lineNumber: 130,
+                                lineNumber: 133,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/layout/Navbar.tsx",
-                        lineNumber: 119,
+                        lineNumber: 122,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -272,18 +273,18 @@ function Navbar() {
                                                 className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])('absolute -bottom-1 left-0 h-px transition-all duration-300', underline, isActive ? 'w-full opacity-100' : 'w-0 opacity-0 group-hover:w-full group-hover:opacity-100')
                                             }, void 0, false, {
                                                 fileName: "[project]/components/layout/Navbar.tsx",
-                                                lineNumber: 150,
+                                                lineNumber: 153,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/layout/Navbar.tsx",
-                                        lineNumber: 142,
+                                        lineNumber: 145,
                                         columnNumber: 17
                                     }, this)
                                 }, link.id, false, {
                                     fileName: "[project]/components/layout/Navbar.tsx",
-                                    lineNumber: 141,
+                                    lineNumber: 144,
                                     columnNumber: 15
                                 }, this);
                             }),
@@ -292,30 +293,30 @@ function Navbar() {
                                     href: "/chatzo",
                                     className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])('flex items-center gap-1.5 font-body text-sm transition-colors', textMuted, `hover:${textStrong}`),
                                     children: [
-                                        "ChatZO",
+                                        t.nav.chatzo,
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                             className: "font-body text-[9px] px-1.5 py-0.5 rounded-full bg-teal-500/15 text-teal-400 border border-teal-500/25 font-semibold",
                                             children: "AI"
                                         }, void 0, false, {
                                             fileName: "[project]/components/layout/Navbar.tsx",
-                                            lineNumber: 163,
+                                            lineNumber: 166,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/layout/Navbar.tsx",
-                                    lineNumber: 161,
+                                    lineNumber: 164,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/layout/Navbar.tsx",
-                                lineNumber: 160,
+                                lineNumber: 163,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/layout/Navbar.tsx",
-                        lineNumber: 137,
+                        lineNumber: 140,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -332,12 +333,12 @@ function Navbar() {
                                         children: l === 'en' ? 'EN' : '日本語'
                                     }, l, false, {
                                         fileName: "[project]/components/layout/Navbar.tsx",
-                                        lineNumber: 172,
+                                        lineNumber: 175,
                                         columnNumber: 15
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/components/layout/Navbar.tsx",
-                                lineNumber: 170,
+                                lineNumber: 173,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -346,7 +347,7 @@ function Navbar() {
                                 children: t.nav.signIn
                             }, void 0, false, {
                                 fileName: "[project]/components/layout/Navbar.tsx",
-                                lineNumber: 181,
+                                lineNumber: 184,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -355,13 +356,13 @@ function Navbar() {
                                 children: t.nav.requestDemo
                             }, void 0, false, {
                                 fileName: "[project]/components/layout/Navbar.tsx",
-                                lineNumber: 184,
+                                lineNumber: 187,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/layout/Navbar.tsx",
-                        lineNumber: 169,
+                        lineNumber: 172,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -378,12 +379,12 @@ function Navbar() {
                                         children: l === 'en' ? 'EN' : 'JP'
                                     }, l, false, {
                                         fileName: "[project]/components/layout/Navbar.tsx",
-                                        lineNumber: 194,
+                                        lineNumber: 197,
                                         columnNumber: 15
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/components/layout/Navbar.tsx",
-                                lineNumber: 192,
+                                lineNumber: 195,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -395,43 +396,43 @@ function Navbar() {
                                         className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])('w-5 h-px transition-all duration-300', burgerLine, menuOpen && 'rotate-45 translate-y-2')
                                     }, void 0, false, {
                                         fileName: "[project]/components/layout/Navbar.tsx",
-                                        lineNumber: 204,
+                                        lineNumber: 207,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])('w-5 h-px transition-all duration-300', burgerLine, menuOpen && 'opacity-0')
                                     }, void 0, false, {
                                         fileName: "[project]/components/layout/Navbar.tsx",
-                                        lineNumber: 205,
+                                        lineNumber: 208,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])('w-5 h-px transition-all duration-300', burgerLine, menuOpen && '-rotate-45 -translate-y-2')
                                     }, void 0, false, {
                                         fileName: "[project]/components/layout/Navbar.tsx",
-                                        lineNumber: 206,
+                                        lineNumber: 209,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/layout/Navbar.tsx",
-                                lineNumber: 203,
+                                lineNumber: 206,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/layout/Navbar.tsx",
-                        lineNumber: 191,
+                        lineNumber: 194,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/layout/Navbar.tsx",
-                lineNumber: 117,
+                lineNumber: 120,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])('lg:hidden overflow-hidden transition-all duration-300', menuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'),
+                className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])('lg:hidden overflow-hidden transition-all duration-300', menuOpen ? 'max-h-[28rem] opacity-100' : 'max-h-0 opacity-0'),
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])('backdrop-blur-md px-6 py-5 flex flex-col gap-1', mobileBg),
                     children: [
@@ -446,10 +447,54 @@ function Navbar() {
                                 children: link.label
                             }, link.id, false, {
                                 fileName: "[project]/components/layout/Navbar.tsx",
-                                lineNumber: 217,
+                                lineNumber: 220,
                                 columnNumber: 15
                             }, this);
                         }),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                            href: "/chatzo",
+                            onClick: ()=>setMenuOpen(false),
+                            className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])('font-body text-sm py-2.5 flex flex-col gap-0.5 transition-colors border-l-2 pl-3 w-full text-left', mobileChatZO),
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    className: "flex items-center gap-2",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "font-semibold",
+                                            children: t.nav.chatzo
+                                        }, void 0, false, {
+                                            fileName: "[project]/components/layout/Navbar.tsx",
+                                            lineNumber: 239,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "font-body text-[9px] px-1.5 py-0.5 rounded-full bg-teal-500/15 text-teal-500 border border-teal-500/30 font-semibold",
+                                            children: "AI"
+                                        }, void 0, false, {
+                                            fileName: "[project]/components/layout/Navbar.tsx",
+                                            lineNumber: 240,
+                                            columnNumber: 15
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/components/layout/Navbar.tsx",
+                                    lineNumber: 238,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])('text-xs font-normal', isLight ? 'text-forest-700/55' : 'text-cream/45'),
+                                    children: t.nav.chatzoCaption
+                                }, void 0, false, {
+                                    fileName: "[project]/components/layout/Navbar.tsx",
+                                    lineNumber: 244,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/components/layout/Navbar.tsx",
+                            lineNumber: 230,
+                            columnNumber: 11
+                        }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "pt-3 mt-1 border-t border-sage/10",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -459,29 +504,29 @@ function Navbar() {
                                 children: t.nav.requestDemo
                             }, void 0, false, {
                                 fileName: "[project]/components/layout/Navbar.tsx",
-                                lineNumber: 228,
+                                lineNumber: 249,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/components/layout/Navbar.tsx",
-                            lineNumber: 227,
+                            lineNumber: 248,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/layout/Navbar.tsx",
-                    lineNumber: 213,
+                    lineNumber: 216,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/layout/Navbar.tsx",
-                lineNumber: 212,
+                lineNumber: 215,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/layout/Navbar.tsx",
-        lineNumber: 106,
+        lineNumber: 109,
         columnNumber: 5
     }, this);
 }
@@ -1139,6 +1184,24 @@ function HeroSection() {
                 className: "relative z-10 max-w-4xl mx-auto px-6 lg:px-12 text-center pt-20",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "mb-6 opacity-0",
+                        style: {
+                            animation: 'fadeUp 0.6s ease 0.1s forwards'
+                        },
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                            className: "font-display text-2xl sm:text-3xl tracking-[0.4em] uppercase text-sage-muted/80",
+                            children: "PxNexus"
+                        }, void 0, false, {
+                            fileName: "[project]/components/sections/HeroSection.tsx",
+                            lineNumber: 137,
+                            columnNumber: 11
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "[project]/components/sections/HeroSection.tsx",
+                        lineNumber: 136,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "inline-flex items-center gap-2 px-4 py-2 rounded-full border border-sage/25 bg-sage/8 mb-10 opacity-0",
                         style: {
                             animation: 'fadeUp 0.6s ease 0.3s forwards'
@@ -1148,7 +1211,7 @@ function HeroSection() {
                                 className: "w-1.5 h-1.5 rounded-full bg-sage-light animate-pulse"
                             }, void 0, false, {
                                 fileName: "[project]/components/sections/HeroSection.tsx",
-                                lineNumber: 138,
+                                lineNumber: 143,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1156,13 +1219,13 @@ function HeroSection() {
                                 children: t.hero.eyebrow
                             }, void 0, false, {
                                 fileName: "[project]/components/sections/HeroSection.tsx",
-                                lineNumber: 139,
+                                lineNumber: 144,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/sections/HeroSection.tsx",
-                        lineNumber: 136,
+                        lineNumber: 141,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -1174,7 +1237,7 @@ function HeroSection() {
                             t.hero.headline1,
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                 fileName: "[project]/components/sections/HeroSection.tsx",
-                                lineNumber: 146,
+                                lineNumber: 151,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1184,18 +1247,18 @@ function HeroSection() {
                                     delay: 1200
                                 }, void 0, false, {
                                     fileName: "[project]/components/sections/HeroSection.tsx",
-                                    lineNumber: 148,
+                                    lineNumber: 153,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/sections/HeroSection.tsx",
-                                lineNumber: 147,
+                                lineNumber: 152,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/sections/HeroSection.tsx",
-                        lineNumber: 143,
+                        lineNumber: 148,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1206,7 +1269,7 @@ function HeroSection() {
                         children: t.hero.sub
                     }, void 0, false, {
                         fileName: "[project]/components/sections/HeroSection.tsx",
-                        lineNumber: 153,
+                        lineNumber: 158,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1217,7 +1280,7 @@ function HeroSection() {
                         children: t.hero.body
                     }, void 0, false, {
                         fileName: "[project]/components/sections/HeroSection.tsx",
-                        lineNumber: 157,
+                        lineNumber: 162,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1243,18 +1306,18 @@ function HeroSection() {
                                             strokeLinejoin: "round"
                                         }, void 0, false, {
                                             fileName: "[project]/components/sections/HeroSection.tsx",
-                                            lineNumber: 169,
+                                            lineNumber: 174,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/components/sections/HeroSection.tsx",
-                                        lineNumber: 168,
+                                        lineNumber: 173,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/sections/HeroSection.tsx",
-                                lineNumber: 165,
+                                lineNumber: 170,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -1263,13 +1326,13 @@ function HeroSection() {
                                 children: t.hero.cta2
                             }, void 0, false, {
                                 fileName: "[project]/components/sections/HeroSection.tsx",
-                                lineNumber: 172,
+                                lineNumber: 177,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/sections/HeroSection.tsx",
-                        lineNumber: 163,
+                        lineNumber: 168,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1282,7 +1345,7 @@ function HeroSection() {
                                 className: "w-px h-10 bg-gradient-to-b from-sage/40 to-transparent animate-float"
                             }, void 0, false, {
                                 fileName: "[project]/components/sections/HeroSection.tsx",
-                                lineNumber: 181,
+                                lineNumber: 186,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1290,13 +1353,13 @@ function HeroSection() {
                                 children: t.hero.scroll
                             }, void 0, false, {
                                 fileName: "[project]/components/sections/HeroSection.tsx",
-                                lineNumber: 182,
+                                lineNumber: 187,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/sections/HeroSection.tsx",
-                        lineNumber: 179,
+                        lineNumber: 184,
                         columnNumber: 9
                     }, this)
                 ]
@@ -1334,7 +1397,7 @@ function HeroSection() {
                                             fill: "rgba(255,255,255,0.7)"
                                         }, void 0, false, {
                                             fileName: "[project]/components/sections/HeroSection.tsx",
-                                            lineNumber: 193,
+                                            lineNumber: 198,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
@@ -1344,23 +1407,23 @@ function HeroSection() {
                                             strokeLinecap: "round"
                                         }, void 0, false, {
                                             fileName: "[project]/components/sections/HeroSection.tsx",
-                                            lineNumber: 194,
+                                            lineNumber: 199,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/sections/HeroSection.tsx",
-                                    lineNumber: 192,
+                                    lineNumber: 197,
                                     columnNumber: 15
                                 }, this)
                             }, i, false, {
                                 fileName: "[project]/components/sections/HeroSection.tsx",
-                                lineNumber: 191,
+                                lineNumber: 196,
                                 columnNumber: 13
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/components/sections/HeroSection.tsx",
-                        lineNumber: 189,
+                        lineNumber: 194,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1368,13 +1431,13 @@ function HeroSection() {
                         children: "1,200+ teams hiring with PxNexus"
                     }, void 0, false, {
                         fileName: "[project]/components/sections/HeroSection.tsx",
-                        lineNumber: 199,
+                        lineNumber: 204,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/sections/HeroSection.tsx",
-                lineNumber: 187,
+                lineNumber: 192,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1392,12 +1455,12 @@ function HeroSection() {
                             fill: "currentColor"
                         }, void 0, false, {
                             fileName: "[project]/components/sections/HeroSection.tsx",
-                            lineNumber: 205,
+                            lineNumber: 210,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/sections/HeroSection.tsx",
-                        lineNumber: 204,
+                        lineNumber: 209,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1405,13 +1468,13 @@ function HeroSection() {
                         children: "Rated 4.9 / 5 by HR teams"
                     }, void 0, false, {
                         fileName: "[project]/components/sections/HeroSection.tsx",
-                        lineNumber: 207,
+                        lineNumber: 212,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/sections/HeroSection.tsx",
-                lineNumber: 202,
+                lineNumber: 207,
                 columnNumber: 7
             }, this)
         ]

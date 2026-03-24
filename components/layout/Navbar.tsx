@@ -101,6 +101,9 @@ export default function Navbar() {
     ? 'text-forest-700/55 border-transparent hover:text-forest-900 hover:border-sage/40'
     : 'text-cream/55 border-transparent hover:text-cream hover:border-sage/40'
   const mobileDemoBg = isLight ? 'bg-sage text-white' : 'bg-sage text-forest-900'
+  const mobileChatZO = isLight
+    ? 'text-teal-800 border-teal-600/45 hover:text-teal-950 hover:border-teal-600'
+    : 'text-teal-400 border-teal-500/40 hover:text-teal-300 hover:border-teal-400/55'
 
   return (
     <header className={cn('fixed top-0 left-0 right-0 z-50 transition-all duration-300', headerBg)}>
@@ -159,7 +162,7 @@ export default function Navbar() {
           {/* ChatZO */}
           <li>
             <a href="/chatzo" className={cn('flex items-center gap-1.5 font-body text-sm transition-colors', textMuted, `hover:${textStrong}`)}>
-              ChatZO
+              {t.nav.chatzo}
               <span className="font-body text-[9px] px-1.5 py-0.5 rounded-full bg-teal-500/15 text-teal-400 border border-teal-500/25 font-semibold">AI</span>
             </a>
           </li>
@@ -209,7 +212,7 @@ export default function Navbar() {
       </nav>
 
       {/* ─── Mobile menu ─── */}
-      <div className={cn('lg:hidden overflow-hidden transition-all duration-300', menuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0')}>
+      <div className={cn('lg:hidden overflow-hidden transition-all duration-300', menuOpen ? 'max-h-[28rem] opacity-100' : 'max-h-0 opacity-0')}>
         <div className={cn('backdrop-blur-md px-6 py-5 flex flex-col gap-1', mobileBg)}>
           {navLinks.map((link) => {
             const isActive = activeSection === link.id
@@ -224,6 +227,24 @@ export default function Navbar() {
               </button>
             )
           })}
+          <a
+            href="/chatzo"
+            onClick={() => setMenuOpen(false)}
+            className={cn(
+              'font-body text-sm py-2.5 flex flex-col gap-0.5 transition-colors border-l-2 pl-3 w-full text-left',
+              mobileChatZO,
+            )}
+          >
+            <span className="flex items-center gap-2">
+              <span className="font-semibold">{t.nav.chatzo}</span>
+              <span className="font-body text-[9px] px-1.5 py-0.5 rounded-full bg-teal-500/15 text-teal-500 border border-teal-500/30 font-semibold">
+                AI
+              </span>
+            </span>
+            <span className={cn('text-xs font-normal', isLight ? 'text-forest-700/55' : 'text-cream/45')}>
+              {t.nav.chatzoCaption}
+            </span>
+          </a>
           <div className="pt-3 mt-1 border-t border-sage/10">
             <a href="#contact" onClick={() => setMenuOpen(false)}
               className={cn('block w-full text-center font-body text-sm font-medium px-5 py-3 rounded-lg', mobileDemoBg)}>

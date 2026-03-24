@@ -29,20 +29,27 @@ export default function ChatZONav({ locale, setLocale }: Props) {
   return (
     <header className={cn(
       'fixed top-0 left-0 right-0 z-50 transition-all duration-400',
+      'pt-[env(safe-area-inset-top,0px)]',
       scrolled ? 'bg-zinc-950/95 backdrop-blur-md border-b border-teal-500/12 py-3' : 'bg-transparent py-5'
     )}>
-      <nav className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between">
-        {/* Logo */}
-        <a href="/chatzo" className="flex items-center gap-2.5 group">
-          <div className="w-8 h-8 rounded-lg bg-teal-500/15 border border-teal-500/25 flex items-center justify-center">
+      <nav
+        className={cn(
+          'max-w-7xl mx-auto flex items-center justify-between gap-2 sm:gap-3',
+          'pl-[max(1.5rem,env(safe-area-inset-left,0px))] pr-[max(1.5rem,env(safe-area-inset-right,0px))]',
+          'lg:px-12',
+        )}
+      >
+        {/* Logo — shrink-0 keeps “ChatZO” visible when the row is tight (mobile) */}
+        <a href="/chatzo" className="flex shrink-0 items-center gap-2 sm:gap-2.5 min-w-0 group">
+          <div className="w-8 h-8 shrink-0 rounded-lg bg-teal-500/15 border border-teal-500/25 flex items-center justify-center">
             <svg viewBox="0 0 20 20" fill="none" className="w-4 h-4">
               {/* Z shape */}
               <path d="M4 5h12L4 15h12" stroke="#2dd4bf" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </div>
-          <div className="flex items-baseline gap-0.5">
-            <span className="font-body text-lg font-semibold text-white tracking-tight">Chat</span>
-            <span className="font-body text-lg font-bold text-teal-400 tracking-tight">ZO</span>
+          <div className="flex items-baseline gap-0.5 whitespace-nowrap">
+            <span className="font-body text-base sm:text-lg font-semibold text-white tracking-tight">Chat</span>
+            <span className="font-body text-base sm:text-lg font-bold text-teal-400 tracking-tight">ZO</span>
           </div>
         </a>
 
@@ -83,7 +90,7 @@ export default function ChatZONav({ locale, setLocale }: Props) {
         </div>
 
         {/* Mobile */}
-        <div className="lg:hidden flex items-center gap-2">
+        <div className="lg:hidden flex shrink-0 items-center gap-1.5 sm:gap-2">
           <div className="flex items-center gap-0.5 border border-teal-500/20 rounded-full px-1 py-0.5">
             {(['en', 'ja'] as ChatZOLocale[]).map((l) => (
               <button key={l} onClick={() => setLocale(l)}
@@ -104,7 +111,12 @@ export default function ChatZONav({ locale, setLocale }: Props) {
 
       {/* Mobile menu */}
       <div className={cn('lg:hidden overflow-hidden transition-all duration-300', open ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0')}>
-        <div className="bg-zinc-900/98 border-t border-teal-500/10 px-6 py-5 flex flex-col gap-3">
+        <div
+          className={cn(
+            'bg-zinc-900/98 border-t border-teal-500/10 py-5 flex flex-col gap-3',
+            'pl-[max(1.5rem,env(safe-area-inset-left,0px))] pr-[max(1.5rem,env(safe-area-inset-right,0px))]',
+          )}
+        >
           {links.map((l) => (
             <a key={l.label} href={l.href} onClick={() => setOpen(false)}
               className="font-body text-sm text-white/60 hover:text-white py-1.5">{l.label}</a>

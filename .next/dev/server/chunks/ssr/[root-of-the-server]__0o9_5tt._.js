@@ -19,6 +19,8 @@ const translations = {
             framework: 'The Px Framework',
             platform: 'Platform',
             about: 'About',
+            chatzo: 'ChatZO',
+            chatzoCaption: 'Year-end adjustment automation',
             signIn: 'Sign in',
             requestDemo: 'Request Demo'
         },
@@ -233,6 +235,8 @@ const translations = {
             framework: 'Pxフレームワーク',
             platform: 'プラットフォーム',
             about: '私たちについて',
+            chatzo: 'ChatZO',
+            chatzoCaption: '年末調整の自動化',
             signIn: 'ログイン',
             requestDemo: '無料デモを申込む'
         },

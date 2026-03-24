@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Cormorant_Garamond, DM_Sans } from 'next/font/google'
 import Providers from './providers'
 import './globals.css'
@@ -17,6 +17,12 @@ const dmSans = DM_Sans({
   variable: '--font-dm-sans',
   display: 'swap',
 })
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
+}
 
 export const metadata: Metadata = {
   title: 'PxNexus — Find People Who Fit, Stay, and Grow',
