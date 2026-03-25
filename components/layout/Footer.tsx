@@ -1,6 +1,7 @@
 'use client'
 
 import { useI18n } from '@/lib/i18n-context'
+import { PxNexusWordmark } from '@/components/branding/PxNexusWordmark'
 
 export default function Footer() {
   const { t } = useI18n()
@@ -19,10 +20,7 @@ export default function Footer() {
                 <line x1="26" y1="6" x2="6" y2="26" stroke="#c8975a" strokeWidth="1.8" strokeLinecap="round" />
                 <circle cx="16" cy="16" r="2.5" fill="#c8975a" />
               </svg>
-              <span className="font-display text-lg font-semibold">
-                <span className="text-cream">Px</span>
-                <span className="text-sage-light">Nexus</span>
-              </span>
+              <PxNexusWordmark variant="on-dark" className="font-display text-lg font-semibold" />
             </div>
 
             <p className="font-body text-sm text-cream/40 leading-relaxed max-w-xs mb-5">

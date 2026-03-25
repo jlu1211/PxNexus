@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react'
 import { chatzoTranslations, ChatZOLocale } from '@/lib/i18n-chatzo'
+import { PxNexusWordmark } from '@/components/branding/PxNexusWordmark'
 
 interface Props { locale: ChatZOLocale }
 
@@ -136,10 +137,20 @@ export default function ChatZOCTA({ locale }: Props) {
         {/* Back to PxNexus */}
         <div className="reveal mt-12 text-center">
           <a href="/" className="inline-flex items-center gap-2 font-body text-sm text-white/25 hover:text-white/50 transition-colors">
-            <svg viewBox="0 0 16 16" fill="none" className="w-3.5 h-3.5">
+            <svg viewBox="0 0 16 16" fill="none" className="w-3.5 h-3.5 shrink-0">
               <path d="M10 12L6 8l4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-            {locale === 'ja' ? 'PxNexusトップへ戻る' : 'Back to PxNexus'}
+            {locale === 'ja' ? (
+              <>
+                <PxNexusWordmark variant="on-dark" className="font-display text-sm font-semibold" />
+                <span>トップへ戻る</span>
+              </>
+            ) : (
+              <>
+                <span>Back to</span>
+                <PxNexusWordmark variant="on-dark" className="font-display text-sm font-semibold" />
+              </>
+            )}
           </a>
         </div>
       </div>

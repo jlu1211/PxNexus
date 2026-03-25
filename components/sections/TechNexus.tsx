@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { cn } from '@/lib/utils'
 import { useI18n } from '@/lib/i18n-context'
+import { PxNexusWordmark } from '@/components/branding/PxNexusWordmark'
 
 /* ─── Node icons ─── */
 function CompanyIcon({ active }: { active: boolean }) {
@@ -295,7 +296,8 @@ export default function TechNexus() {
                 <div className="font-body text-xs text-amber/60 tracking-widest uppercase mb-1">AI Engine</div>
                 <h3 className={cn('font-display text-2xl font-medium transition-colors duration-300',
                   isNexusActive ? 'text-cream' : 'text-cream/75')}>
-                  PxNexus Matches
+                  <PxNexusWordmark variant="on-dark" className="inline" />
+                  {' '}Matches
                 </h3>
                 <p className={cn('font-body text-sm mt-2 transition-colors duration-300',
                   isNexusActive ? 'text-cream/55' : 'text-cream/30')}>

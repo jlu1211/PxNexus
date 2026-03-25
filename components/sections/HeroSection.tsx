@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { useI18n } from '@/lib/i18n-context'
+import { PxNexusWordmark } from '@/components/branding/PxNexusWordmark'
 
 function TypewriterText({ text, delay = 0 }: { text: string; delay?: number }) {
   const [displayed, setDisplayed] = useState('')
@@ -100,7 +101,7 @@ export default function HeroSection() {
 
       {/* ─── Nexus SVG ─── */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <svg viewBox="0 0 700 560" className="w-full h-full max-w-4xl opacity-[0.22]" fill="none" preserveAspectRatio="xMidYMid slice">
+        <svg viewBox="0 0 700 560" className="w-[min(96vw,72rem)] h-auto max-h-[85vh] sm:w-[min(94vw,80rem)] opacity-[0.26]" fill="none" preserveAspectRatio="xMidYMid meet">
           <defs>
             <linearGradient id="hero-line-1" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#5c8f72" stopOpacity="0" />
@@ -132,9 +133,12 @@ export default function HeroSection() {
 
       {/* ─── Content ─── */}
       <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-12 text-center pt-20">
-        {/* Company Name */}
-        <div className="mb-6 opacity-0" style={{ animation: 'fadeUp 0.6s ease 0.1s forwards' }}>
-          <span className="font-display text-2xl sm:text-3xl tracking-[0.4em] uppercase text-sage-muted/80">PxNexus</span>
+        {/* Wordmark — no uppercase (Tailwind uppercase was forcing PXNEXUS) */}
+        <div className="mb-8 opacity-0" style={{ animation: 'fadeUp 0.6s ease 0.1s forwards' }}>
+          <PxNexusWordmark
+            variant="on-dark"
+            className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold tracking-tight"
+          />
         </div>
 
         {/* Badge */}
@@ -201,7 +205,10 @@ export default function HeroSection() {
             </div>
           ))}
         </div>
-        <span className="font-body text-xs text-cream/60">1,200+ teams hiring with PxNexus</span>
+        <span className="font-body text-xs text-cream/60 inline-flex items-center gap-1 flex-wrap justify-center">
+          <span>1,200+ teams hiring with</span>
+          <PxNexusWordmark variant="on-dark" className="font-display text-xs font-semibold" />
+        </span>
       </div>
 
       <div className="absolute bottom-10 right-6 hidden lg:flex items-center gap-2 px-4 py-2.5 rounded-xl bg-forest-800/60 backdrop-blur-sm border border-sage/12 opacity-0 hover:border-sage/25 transition-colors cursor-default"

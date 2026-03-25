@@ -354,7 +354,7 @@ export const chatzoTranslations = {
     },
     demo: {
       eyebrow: 'ライブパイプラインデモ',
-      headline: '1枚の書類。完全な変換。',
+      headline: '１枚の書類。完全な変換。',
       sub: '実際の保険料控除証明書がOCRから給与データ対応CSVへと変換される全工程をご覧ください。',
     },
   },

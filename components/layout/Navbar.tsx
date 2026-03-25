@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { cn } from '@/lib/utils'
 import { useI18n } from '@/lib/i18n-context'
+import { PxNexusWordmark } from '@/components/branding/PxNexusWordmark'
 
 const SECTION_IDS = ['solutions', 'framework', 'platform', 'about', 'contact']
 
@@ -86,8 +87,6 @@ export default function Navbar() {
   const textMuted  = isLight ? 'text-forest-700/60' : 'text-cream/50'
   const textStrong = isLight ? 'text-forest-900'    : 'text-cream'
   const underline  = isLight ? 'bg-sage'             : 'bg-sage'
-  const logoP      = isLight ? 'text-forest-900'     : 'text-cream'
-  const logoN      = isLight ? 'text-sage'            : 'text-sage-light'
   const langBorder = isLight ? 'border-forest-700/20' : 'border-sage/20'
   const langActive = isLight ? 'bg-sage text-white'   : 'bg-sage text-forest-900'
   const langInactive= isLight ? 'text-forest-700/50 hover:text-forest-900' : 'text-cream/50 hover:text-cream'
@@ -130,10 +129,11 @@ export default function Navbar() {
               <circle cx="16" cy="16" r="3" fill="#c8975a" />
             </svg>
           </div>
-          <span className="font-display text-xl font-semibold tracking-wide">
-            <span className={cn('transition-colors duration-300', logoP)}>Px</span>
-            <span className={cn('transition-colors duration-300', logoN)}>Nexus</span>
-          </span>
+          <PxNexusWordmark
+            variant={isLight ? 'on-light' : 'on-dark'}
+            className="font-display text-xl font-semibold tracking-wide"
+            transition
+          />
         </a>
 
         {/* ─── Desktop nav ─── */}

@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { cn } from '@/lib/utils'
 import { chatzoTranslations, ChatZOLocale } from '@/lib/i18n-chatzo'
+import { PxNexusWordmark } from '@/components/branding/PxNexusWordmark'
 
 interface Props {
   locale: ChatZOLocale
@@ -64,8 +65,9 @@ export default function ChatZONav({ locale, setLocale }: Props) {
             </li>
           ))}
           <li>
-            <a href="/" className="font-body text-sm text-white/30 hover:text-white/60 transition-colors">
-              ← PxNexus
+            <a href="/" className="inline-flex items-center gap-1.5 font-body text-sm text-white/30 hover:text-white/65 transition-colors">
+              <span aria-hidden>←</span>
+              <PxNexusWordmark variant="on-dark" className="font-display text-sm font-semibold" />
             </a>
           </li>
         </ul>
@@ -110,7 +112,7 @@ export default function ChatZONav({ locale, setLocale }: Props) {
       </nav>
 
       {/* Mobile menu */}
-      <div className={cn('lg:hidden overflow-hidden transition-all duration-300', open ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0')}>
+      <div className={cn('lg:hidden overflow-hidden transition-all duration-300', open ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0')}>
         <div
           className={cn(
             'bg-zinc-900/98 border-t border-teal-500/10 py-5 flex flex-col gap-3',
@@ -121,6 +123,11 @@ export default function ChatZONav({ locale, setLocale }: Props) {
             <a key={l.label} href={l.href} onClick={() => setOpen(false)}
               className="font-body text-sm text-white/60 hover:text-white py-1.5">{l.label}</a>
           ))}
+          <a href="/" onClick={() => setOpen(false)}
+            className="inline-flex items-center gap-1.5 font-body text-sm text-white/45 hover:text-white py-1.5">
+            <span aria-hidden>←</span>
+            <PxNexusWordmark variant="on-dark" className="font-display text-sm font-semibold" />
+          </a>
           <div className="pt-3 border-t border-teal-500/10">
             <a href="#cta" onClick={() => setOpen(false)}
               className="block w-full text-center font-body text-sm font-medium px-5 py-3 rounded-lg bg-teal-500 text-zinc-900">

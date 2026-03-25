@@ -9,6 +9,7 @@ import ChatZODemo from '@/components/chatzo/ChatZODemo'
 import ChatZOFeatures from '@/components/chatzo/ChatZOFeatures'
 import ChatZOVision from '@/components/chatzo/ChatZOVision'
 import ChatZOCTA from '@/components/chatzo/ChatZOCTA'
+import { PxNexusWordmark } from '@/components/branding/PxNexusWordmark'
 
 export default function ChatZOPage() {
   const [locale, setLocale] = useState<ChatZOLocale>('ja')
@@ -38,7 +39,11 @@ export default function ChatZOPage() {
                 Chat<span className="text-teal-400">ZO</span>
               </span>
             </div>
-            <p className="font-body text-xs text-white/25">© 2026 ChatZO / PxNexus. All rights reserved.</p>
+            <p className="font-body text-xs text-white/25 flex flex-wrap items-center justify-center gap-x-1 gap-y-0.5">
+              <span>© 2026 ChatZO /</span>
+              <PxNexusWordmark variant="on-dark" className="font-display text-xs font-semibold" />
+              <span>. All rights reserved.</span>
+            </p>
             <p className="font-display text-xs italic text-teal-500/25">
               {locale === 'ja' ? '年末調整を、もっとスマートに。' : 'HR automation, built for Japan.'}
             </p>
