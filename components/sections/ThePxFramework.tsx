@@ -4,17 +4,32 @@ import { useEffect, useRef, type CSSProperties } from 'react'
 import { useI18n } from '@/lib/i18n-context'
 
 const pillarIcons = [
-  <svg key="p" viewBox="0 0 24 24" fill="none" className="w-6 h-6">
-    <circle cx="12" cy="8" r="3.5" stroke="currentColor" strokeWidth="1.5" />
-    <path d="M5 20c0-3.3 3.1-6 7-6s7 2.7 7 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+  // Partner First — handshake
+  <svg key="pf" viewBox="0 0 24 24" fill="none" className="w-6 h-6">
+    <path d="M4 12c0 0 1.5-2 4-2s4 2 4 2 1.5 2 4 2 4-2 4-2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M4 12l2 4h12l2-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M9 10V7l3-3 3 3v3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
   </svg>,
-  <svg key="ph" viewBox="0 0 24 24" fill="none" className="w-6 h-6">
+  // Process Intelligence — hexagon structure
+  <svg key="pi" viewBox="0 0 24 24" fill="none" className="w-6 h-6">
     <path d="M12 3L4.5 7.5v9L12 21l7.5-4.5v-9L12 3z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
     <path d="M12 3v18M4.5 7.5l7.5 4.5 7.5-4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
   </svg>,
-  <svg key="pa" viewBox="0 0 24 24" fill="none" className="w-6 h-6">
-    <path d="M12 21C12 21 4 14.5 4 9a8 8 0 0116 0c0 5.5-8 12-8 12z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
-    <circle cx="12" cy="9" r="2.5" stroke="currentColor" strokeWidth="1.5" />
+  // People by Design — person + ruler
+  <svg key="pd" viewBox="0 0 24 24" fill="none" className="w-6 h-6">
+    <circle cx="9" cy="7" r="3" stroke="currentColor" strokeWidth="1.5" />
+    <path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    <path d="M17 3v18M17 7h3M17 11h2M17 15h3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+  </svg>,
+  // Proof over Promises — shield with check
+  <svg key="pp" viewBox="0 0 24 24" fill="none" className="w-6 h-6">
+    <path d="M12 3l8 3v5c0 5-3.5 9-8 10C7.5 20 4 16 4 11V6l8-3z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+    <path d="M8.5 12l2.5 2.5 4.5-4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>,
+  // Pioneer New Standards — flag
+  <svg key="pn" viewBox="0 0 24 24" fill="none" className="w-6 h-6">
+    <path d="M5 3v18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    <path d="M5 4h12l-3 4 3 4H5" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
   </svg>,
 ]
 
@@ -116,14 +131,16 @@ export default function ThePxFramework() {
           </p>
         </div>
 
-        {/* Pillar cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+        {/* Pillar cards — 6-col grid: top 3 each span 2, bottom 2 each span 2 centered via col-start-2 */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-5">
           {t.framework.pillars.map((pillar, i) => {
             const featured = 'featured' in pillar && pillar.featured
+            // On lg: all cards span 2 cols; 4th card (index 3) starts at col 2 to center the bottom row
+            const colClass = i === 3 ? 'lg:col-span-2 lg:col-start-2' : 'lg:col-span-2'
             return (
               <TiltCard
                 key={pillar.label}
-                className={`reveal group relative rounded-2xl overflow-hidden ${
+                className={`reveal group relative rounded-2xl overflow-hidden ${colClass} ${
                   featured ? 'bg-forest-800' : 'bg-forest-700'
                 }`}
                 style={{ transitionDelay: `${i * 0.1}s` }}

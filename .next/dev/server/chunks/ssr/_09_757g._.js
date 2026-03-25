@@ -803,12 +803,14 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$i18n$2d$context$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/i18n-context.tsx [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$branding$2f$PxNexusWordmark$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/branding/PxNexusWordmark.tsx [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/utils.ts [app-ssr] (ecmascript)");
 'use client';
 ;
 ;
 ;
 ;
-function TypewriterText({ text, delay = 0 }) {
+;
+/* ─── Typewriter ─── */ function TypewriterText({ text, delay = 0 }) {
     const [displayed, setDisplayed] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])('');
     const [started, setStarted] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
@@ -838,21 +840,103 @@ function TypewriterText({ text, delay = 0 }) {
                 className: "inline-block w-0.5 h-[0.85em] bg-amber align-middle ml-1 animate-pulse"
             }, void 0, false, {
                 fileName: "[project]/components/sections/HeroSection.tsx",
-                lineNumber: 32,
+                lineNumber: 34,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true);
 }
+const TERMINAL_STEPS = {
+    en: [
+        {
+            prefix: '> ',
+            text: 'Scanning: 承認フロー',
+            delay: 500
+        },
+        {
+            prefix: '> ',
+            text: 'Manual steps found: 7',
+            delay: 900
+        },
+        {
+            prefix: '> ',
+            text: 'Automatable: 5 / 7 (71%)',
+            delay: 700
+        },
+        {
+            prefix: '> ',
+            text: 'Estimated reduction: -62%',
+            delay: 800
+        },
+        {
+            prefix: '✓ ',
+            text: 'Redesign plan ready',
+            delay: 500,
+            isSuccess: true
+        }
+    ],
+    ja: [
+        {
+            prefix: '> ',
+            text: 'スキャン中: 承認フロー',
+            delay: 500
+        },
+        {
+            prefix: '> ',
+            text: '手動ステップ検出: 7件',
+            delay: 900
+        },
+        {
+            prefix: '> ',
+            text: '自動化可能: 5 / 7 (71%)',
+            delay: 700
+        },
+        {
+            prefix: '> ',
+            text: '削減予測: -62% 工数',
+            delay: 800
+        },
+        {
+            prefix: '✓ ',
+            text: '再設計プランを生成しました',
+            delay: 500,
+            isSuccess: true
+        }
+    ]
+};
+/* ─── Canvas neural network helpers ─── */ function initParticles(w, h) {
+    const count = w < 768 ? 30 : 60;
+    return Array.from({
+        length: count
+    }, ()=>({
+            x: Math.random() * w,
+            y: Math.random() * h,
+            vx: (Math.random() - 0.5) * 0.5,
+            vy: (Math.random() - 0.5) * 0.5,
+            r: 1.5 + Math.random() * 2.5,
+            isAmber: Math.random() < 0.12,
+            brightness: 0
+        }));
+}
 function HeroSection() {
-    const { t } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$i18n$2d$context$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useI18n"])();
+    const { t, locale } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$i18n$2d$context$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useI18n"])();
     const sectionRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
     const glowRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+    const canvasRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
+    const mousePosRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])({
+        x: -9999,
+        y: -9999
+    });
+    // Terminal state
+    const [terminalLines, setTerminalLines] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
+    const [currentLine, setCurrentLine] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(0);
+    const [typedText, setTypedText] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])('');
+    const [phase, setPhase] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])('typing');
+    const timeoutsRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])([]);
+    /* ─── Mouse glow + parallax ─── */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
         const el = sectionRef.current;
         if (!el) return;
         let rafId = 0;
-        // Parallax orbs on scroll
         const onScroll = ()=>{
             const y = window.scrollY;
             const orb1 = el.querySelector('.orb-1');
@@ -860,7 +944,6 @@ function HeroSection() {
             if (orb1) orb1.style.transform = `translateY(${y * 0.12}px)`;
             if (orb2) orb2.style.transform = `translateY(${y * -0.08}px)`;
         };
-        // Mouse-tracking torch glow
         const onMouseMove = (e)=>{
             cancelAnimationFrame(rafId);
             rafId = requestAnimationFrame(()=>{
@@ -869,6 +952,10 @@ function HeroSection() {
                 const x = (e.clientX - rect.left) / rect.width * 100;
                 const y = (e.clientY - rect.top) / rect.height * 100;
                 glowRef.current.style.background = `radial-gradient(600px circle at ${x}% ${y}%, rgba(200,151,90,0.07) 0%, rgba(92,143,114,0.04) 40%, transparent 70%)`;
+                mousePosRef.current = {
+                    x: e.clientX - rect.left,
+                    y: e.clientY - rect.top
+                };
             });
         };
         window.addEventListener('scroll', onScroll, {
@@ -881,6 +968,186 @@ function HeroSection() {
             cancelAnimationFrame(rafId);
         };
     }, []);
+    /* ─── Canvas neural network ─── */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        const canvas = canvasRef.current;
+        const el = sectionRef.current;
+        if (!canvas || !el) return;
+        const ctx = canvas.getContext('2d');
+        if (!ctx) return;
+        const CONNECTION_DIST = 120;
+        let animId = 0;
+        let particles = [];
+        const resize = ()=>{
+            canvas.width = el.offsetWidth;
+            canvas.height = el.offsetHeight;
+            particles = initParticles(canvas.width, canvas.height);
+        };
+        resize();
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const drawFrame = ()=>{
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            const { x: mx, y: my } = mousePosRef.current;
+            for (const p of particles){
+                if (!prefersReduced) {
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    if (p.x < 0 || p.x > canvas.width) {
+                        p.vx *= -0.98;
+                        p.x = Math.max(0, Math.min(canvas.width, p.x));
+                    }
+                    if (p.y < 0 || p.y > canvas.height) {
+                        p.vy *= -0.98;
+                        p.y = Math.max(0, Math.min(canvas.height, p.y));
+                    }
+                    const dx = mx - p.x;
+                    const dy = my - p.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 200) {
+                        p.brightness = Math.min(1, p.brightness + 0.05);
+                        p.vx += dx / dist * 0.015;
+                        p.vy += dy / dist * 0.015;
+                    } else {
+                        p.brightness = Math.max(0, p.brightness - 0.02);
+                    }
+                    // Clamp velocity
+                    const speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
+                    if (speed > 0.6) {
+                        p.vx = p.vx / speed * 0.6;
+                        p.vy = p.vy / speed * 0.6;
+                    }
+                }
+            }
+            // Draw connections
+            for(let i = 0; i < particles.length; i++){
+                for(let j = i + 1; j < particles.length; j++){
+                    const a = particles[i];
+                    const b = particles[j];
+                    const dx = a.x - b.x;
+                    const dy = a.y - b.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < CONNECTION_DIST) {
+                        const opacity = (1 - dist / CONNECTION_DIST) * 0.35;
+                        const isAmberLine = a.isAmber && b.isAmber;
+                        ctx.beginPath();
+                        ctx.moveTo(a.x, a.y);
+                        ctx.lineTo(b.x, b.y);
+                        ctx.strokeStyle = isAmberLine ? `rgba(200,151,90,${opacity})` : `rgba(92,143,114,${opacity})`;
+                        ctx.lineWidth = 0.8;
+                        ctx.stroke();
+                    }
+                }
+            }
+            // Draw nodes
+            for (const p of particles){
+                const alpha = 0.3 + p.brightness * 0.5;
+                const glowColor = p.isAmber ? `rgba(200,151,90,${alpha})` : `rgba(92,143,114,${alpha})`;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                ctx.fillStyle = glowColor;
+                if (p.brightness > 0.5) {
+                    ctx.shadowBlur = 8;
+                    ctx.shadowColor = p.isAmber ? 'rgba(200,151,90,0.6)' : 'rgba(92,143,114,0.6)';
+                } else {
+                    ctx.shadowBlur = 0;
+                }
+                ctx.fill();
+                ctx.shadowBlur = 0;
+            }
+        };
+        if (prefersReduced) {
+            drawFrame();
+        } else {
+            const loop = ()=>{
+                drawFrame();
+                animId = requestAnimationFrame(loop);
+            };
+            animId = requestAnimationFrame(loop);
+        }
+        window.addEventListener('resize', resize, {
+            passive: true
+        });
+        return ()=>{
+            cancelAnimationFrame(animId);
+            window.removeEventListener('resize', resize);
+        };
+    }, []);
+    /* ─── Terminal state machine ─── */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        const steps = TERMINAL_STEPS[locale] ?? TERMINAL_STEPS['en'];
+        // Clear all pending timeouts on re-run
+        timeoutsRef.current.forEach(clearTimeout);
+        timeoutsRef.current = [];
+        setTerminalLines([]);
+        setCurrentLine(0);
+        setTypedText('');
+        setPhase('typing');
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            setTerminalLines(steps);
+            return;
+        }
+        let lineIdx = 0;
+        let charIdx = 0;
+        let currentTyped = '';
+        let cancelled = false;
+        const schedule = (fn, ms)=>{
+            const id = setTimeout(()=>{
+                if (!cancelled) fn();
+            }, ms);
+            timeoutsRef.current.push(id);
+        };
+        const typeNextChar = ()=>{
+            const step = steps[lineIdx];
+            if (charIdx < step.text.length) {
+                charIdx++;
+                currentTyped = step.text.slice(0, charIdx);
+                setTypedText(currentTyped);
+                schedule(typeNextChar, 45);
+            } else {
+                // Line complete — push to completed lines
+                const completedStep = step;
+                setTerminalLines((prev)=>[
+                        ...prev,
+                        completedStep
+                    ]);
+                setTypedText('');
+                charIdx = 0;
+                currentTyped = '';
+                lineIdx++;
+                setCurrentLine(lineIdx);
+                if (lineIdx < steps.length) {
+                    schedule(startNextLine, steps[lineIdx].delay);
+                } else {
+                    // All lines done — pause then reset
+                    schedule(()=>{
+                        setPhase('pausing');
+                        schedule(()=>{
+                            setPhase('resetting');
+                            schedule(()=>{
+                                lineIdx = 0;
+                                charIdx = 0;
+                                currentTyped = '';
+                                setTerminalLines([]);
+                                setCurrentLine(0);
+                                setTypedText('');
+                                setPhase('typing');
+                                schedule(startNextLine, steps[0].delay);
+                            }, 300);
+                        }, 2500);
+                    }, 0);
+                }
+            }
+        };
+        const startNextLine = ()=>{
+            schedule(typeNextChar, 0);
+        };
+        schedule(startNextLine, steps[0].delay);
+        return ()=>{
+            cancelled = true;
+            timeoutsRef.current.forEach(clearTimeout);
+        };
+    }, [
+        locale
+    ]);
+    const steps = TERMINAL_STEPS[locale] ?? TERMINAL_STEPS['en'];
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
         ref: sectionRef,
         className: "relative min-h-screen flex items-center justify-center overflow-hidden bg-forest-950",
@@ -893,50 +1160,16 @@ function HeroSection() {
                 }
             }, void 0, false, {
                 fileName: "[project]/components/sections/HeroSection.tsx",
-                lineNumber: 86,
+                lineNumber: 335,
                 columnNumber: 7
             }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "absolute inset-0 pointer-events-none overflow-hidden",
-                children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "orb-1 blob-animate absolute -left-40 top-16 w-[560px] h-[560px] opacity-[0.18]",
-                        style: {
-                            background: 'radial-gradient(circle, rgba(92,143,114,0.5) 0%, transparent 70%)',
-                            borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%'
-                        }
-                    }, void 0, false, {
-                        fileName: "[project]/components/sections/HeroSection.tsx",
-                        lineNumber: 94,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "orb-2 blob-animate absolute -right-32 bottom-16 w-[480px] h-[480px] opacity-[0.12]",
-                        style: {
-                            background: 'radial-gradient(circle, rgba(200,151,90,0.5) 0%, transparent 70%)',
-                            borderRadius: '30% 60% 70% 40% / 50% 60% 30% 60%',
-                            animationDelay: '-4s'
-                        }
-                    }, void 0, false, {
-                        fileName: "[project]/components/sections/HeroSection.tsx",
-                        lineNumber: 96,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "absolute inset-0 opacity-[0.04]",
-                        style: {
-                            backgroundImage: 'radial-gradient(circle, rgba(92,143,114,0.8) 1px, transparent 1px)',
-                            backgroundSize: '48px 48px'
-                        }
-                    }, void 0, false, {
-                        fileName: "[project]/components/sections/HeroSection.tsx",
-                        lineNumber: 98,
-                        columnNumber: 9
-                    }, this)
-                ]
-            }, void 0, true, {
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("canvas", {
+                ref: canvasRef,
+                className: "absolute inset-0 w-full h-full pointer-events-none z-0",
+                "aria-hidden": "true"
+            }, void 0, false, {
                 fileName: "[project]/components/sections/HeroSection.tsx",
-                lineNumber: 93,
+                lineNumber: 342,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -962,7 +1195,7 @@ function HeroSection() {
                                             stopOpacity: "0"
                                         }, void 0, false, {
                                             fileName: "[project]/components/sections/HeroSection.tsx",
-                                            lineNumber: 107,
+                                            lineNumber: 353,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("stop", {
@@ -971,7 +1204,7 @@ function HeroSection() {
                                             stopOpacity: "0.9"
                                         }, void 0, false, {
                                             fileName: "[project]/components/sections/HeroSection.tsx",
-                                            lineNumber: 108,
+                                            lineNumber: 354,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("stop", {
@@ -980,7 +1213,7 @@ function HeroSection() {
                                             stopOpacity: "1"
                                         }, void 0, false, {
                                             fileName: "[project]/components/sections/HeroSection.tsx",
-                                            lineNumber: 109,
+                                            lineNumber: 355,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("stop", {
@@ -989,13 +1222,13 @@ function HeroSection() {
                                             stopOpacity: "0"
                                         }, void 0, false, {
                                             fileName: "[project]/components/sections/HeroSection.tsx",
-                                            lineNumber: 110,
+                                            lineNumber: 356,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/sections/HeroSection.tsx",
-                                    lineNumber: 106,
+                                    lineNumber: 352,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("linearGradient", {
@@ -1011,7 +1244,7 @@ function HeroSection() {
                                             stopOpacity: "0"
                                         }, void 0, false, {
                                             fileName: "[project]/components/sections/HeroSection.tsx",
-                                            lineNumber: 113,
+                                            lineNumber: 359,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("stop", {
@@ -1020,7 +1253,7 @@ function HeroSection() {
                                             stopOpacity: "0.9"
                                         }, void 0, false, {
                                             fileName: "[project]/components/sections/HeroSection.tsx",
-                                            lineNumber: 114,
+                                            lineNumber: 360,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("stop", {
@@ -1029,7 +1262,7 @@ function HeroSection() {
                                             stopOpacity: "1"
                                         }, void 0, false, {
                                             fileName: "[project]/components/sections/HeroSection.tsx",
-                                            lineNumber: 115,
+                                            lineNumber: 361,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("stop", {
@@ -1038,13 +1271,13 @@ function HeroSection() {
                                             stopOpacity: "0"
                                         }, void 0, false, {
                                             fileName: "[project]/components/sections/HeroSection.tsx",
-                                            lineNumber: 116,
+                                            lineNumber: 362,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/sections/HeroSection.tsx",
-                                    lineNumber: 112,
+                                    lineNumber: 358,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("radialGradient", {
@@ -1059,7 +1292,7 @@ function HeroSection() {
                                             stopOpacity: "1"
                                         }, void 0, false, {
                                             fileName: "[project]/components/sections/HeroSection.tsx",
-                                            lineNumber: 119,
+                                            lineNumber: 365,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("stop", {
@@ -1068,7 +1301,7 @@ function HeroSection() {
                                             stopOpacity: "0.5"
                                         }, void 0, false, {
                                             fileName: "[project]/components/sections/HeroSection.tsx",
-                                            lineNumber: 120,
+                                            lineNumber: 366,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("stop", {
@@ -1077,13 +1310,13 @@ function HeroSection() {
                                             stopOpacity: "0"
                                         }, void 0, false, {
                                             fileName: "[project]/components/sections/HeroSection.tsx",
-                                            lineNumber: 121,
+                                            lineNumber: 367,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/sections/HeroSection.tsx",
-                                    lineNumber: 118,
+                                    lineNumber: 364,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("filter", {
@@ -1094,7 +1327,7 @@ function HeroSection() {
                                             result: "blur"
                                         }, void 0, false, {
                                             fileName: "[project]/components/sections/HeroSection.tsx",
-                                            lineNumber: 123,
+                                            lineNumber: 369,
                                             columnNumber: 36
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("feComposite", {
@@ -1103,19 +1336,19 @@ function HeroSection() {
                                             operator: "over"
                                         }, void 0, false, {
                                             fileName: "[project]/components/sections/HeroSection.tsx",
-                                            lineNumber: 123,
+                                            lineNumber: 369,
                                             columnNumber: 85
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/sections/HeroSection.tsx",
-                                    lineNumber: 123,
+                                    lineNumber: 369,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/sections/HeroSection.tsx",
-                            lineNumber: 105,
+                            lineNumber: 351,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("line", {
@@ -1129,7 +1362,7 @@ function HeroSection() {
                             strokeLinecap: "round"
                         }, void 0, false, {
                             fileName: "[project]/components/sections/HeroSection.tsx",
-                            lineNumber: 125,
+                            lineNumber: 371,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("line", {
@@ -1145,7 +1378,7 @@ function HeroSection() {
                             opacity: "0.25"
                         }, void 0, false, {
                             fileName: "[project]/components/sections/HeroSection.tsx",
-                            lineNumber: 126,
+                            lineNumber: 372,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("line", {
@@ -1159,7 +1392,7 @@ function HeroSection() {
                             strokeLinecap: "round"
                         }, void 0, false, {
                             fileName: "[project]/components/sections/HeroSection.tsx",
-                            lineNumber: 127,
+                            lineNumber: 373,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("line", {
@@ -1175,7 +1408,7 @@ function HeroSection() {
                             opacity: "0.25"
                         }, void 0, false, {
                             fileName: "[project]/components/sections/HeroSection.tsx",
-                            lineNumber: 128,
+                            lineNumber: 374,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
@@ -1186,7 +1419,7 @@ function HeroSection() {
                             fill: "url(#hero-center)"
                         }, void 0, false, {
                             fileName: "[project]/components/sections/HeroSection.tsx",
-                            lineNumber: 129,
+                            lineNumber: 375,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
@@ -1198,18 +1431,18 @@ function HeroSection() {
                             filter: "url(#hero-glow)"
                         }, void 0, false, {
                             fileName: "[project]/components/sections/HeroSection.tsx",
-                            lineNumber: 130,
+                            lineNumber: 376,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/sections/HeroSection.tsx",
-                    lineNumber: 104,
+                    lineNumber: 350,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/sections/HeroSection.tsx",
-                lineNumber: 103,
+                lineNumber: 349,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1225,12 +1458,12 @@ function HeroSection() {
                             className: "font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold tracking-tight"
                         }, void 0, false, {
                             fileName: "[project]/components/sections/HeroSection.tsx",
-                            lineNumber: 138,
+                            lineNumber: 383,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/sections/HeroSection.tsx",
-                        lineNumber: 137,
+                        lineNumber: 382,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1243,7 +1476,7 @@ function HeroSection() {
                                 className: "w-1.5 h-1.5 rounded-full bg-sage-light animate-pulse"
                             }, void 0, false, {
                                 fileName: "[project]/components/sections/HeroSection.tsx",
-                                lineNumber: 147,
+                                lineNumber: 392,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1251,13 +1484,13 @@ function HeroSection() {
                                 children: t.hero.eyebrow
                             }, void 0, false, {
                                 fileName: "[project]/components/sections/HeroSection.tsx",
-                                lineNumber: 148,
+                                lineNumber: 393,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/sections/HeroSection.tsx",
-                        lineNumber: 145,
+                        lineNumber: 390,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -1269,7 +1502,7 @@ function HeroSection() {
                             t.hero.headline1,
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                 fileName: "[project]/components/sections/HeroSection.tsx",
-                                lineNumber: 155,
+                                lineNumber: 400,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1279,18 +1512,18 @@ function HeroSection() {
                                     delay: 1200
                                 }, void 0, false, {
                                     fileName: "[project]/components/sections/HeroSection.tsx",
-                                    lineNumber: 157,
+                                    lineNumber: 402,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/sections/HeroSection.tsx",
-                                lineNumber: 156,
+                                lineNumber: 401,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/sections/HeroSection.tsx",
-                        lineNumber: 152,
+                        lineNumber: 397,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1301,7 +1534,7 @@ function HeroSection() {
                         children: t.hero.sub
                     }, void 0, false, {
                         fileName: "[project]/components/sections/HeroSection.tsx",
-                        lineNumber: 162,
+                        lineNumber: 407,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1312,7 +1545,7 @@ function HeroSection() {
                         children: t.hero.body
                     }, void 0, false, {
                         fileName: "[project]/components/sections/HeroSection.tsx",
-                        lineNumber: 166,
+                        lineNumber: 411,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1338,18 +1571,18 @@ function HeroSection() {
                                             strokeLinejoin: "round"
                                         }, void 0, false, {
                                             fileName: "[project]/components/sections/HeroSection.tsx",
-                                            lineNumber: 178,
+                                            lineNumber: 423,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/components/sections/HeroSection.tsx",
-                                        lineNumber: 177,
+                                        lineNumber: 422,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/sections/HeroSection.tsx",
-                                lineNumber: 174,
+                                lineNumber: 419,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -1358,13 +1591,13 @@ function HeroSection() {
                                 children: t.hero.cta2
                             }, void 0, false, {
                                 fileName: "[project]/components/sections/HeroSection.tsx",
-                                lineNumber: 181,
+                                lineNumber: 426,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/sections/HeroSection.tsx",
-                        lineNumber: 172,
+                        lineNumber: 417,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1377,7 +1610,7 @@ function HeroSection() {
                                 className: "w-px h-10 bg-gradient-to-b from-sage/40 to-transparent animate-float"
                             }, void 0, false, {
                                 fileName: "[project]/components/sections/HeroSection.tsx",
-                                lineNumber: 190,
+                                lineNumber: 435,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1385,19 +1618,186 @@ function HeroSection() {
                                 children: t.hero.scroll
                             }, void 0, false, {
                                 fileName: "[project]/components/sections/HeroSection.tsx",
-                                lineNumber: 191,
+                                lineNumber: 436,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/sections/HeroSection.tsx",
-                        lineNumber: 188,
+                        lineNumber: 433,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/sections/HeroSection.tsx",
-                lineNumber: 135,
+                lineNumber: 381,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "hidden lg:block absolute right-8 xl:right-16 top-1/2 -translate-y-1/2 z-20 w-72 xl:w-80 opacity-0",
+                style: {
+                    animation: 'fadeIn 0.8s ease 2.2s forwards'
+                },
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "relative rounded-xl border border-sage/30 bg-forest-800/85 backdrop-blur-md p-4 ai-glow font-mono text-xs overflow-hidden",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "scan-overlay",
+                            "aria-hidden": "true"
+                        }, void 0, false, {
+                            fileName: "[project]/components/sections/HeroSection.tsx",
+                            lineNumber: 445,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "flex items-center justify-between mb-3 pb-2 border-b border-sage/15",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "flex items-center gap-1.5",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "w-2 h-2 rounded-full bg-red-400/50"
+                                        }, void 0, false, {
+                                            fileName: "[project]/components/sections/HeroSection.tsx",
+                                            lineNumber: 450,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "w-2 h-2 rounded-full bg-amber/40"
+                                        }, void 0, false, {
+                                            fileName: "[project]/components/sections/HeroSection.tsx",
+                                            lineNumber: 451,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "w-2 h-2 rounded-full bg-sage/40"
+                                        }, void 0, false, {
+                                            fileName: "[project]/components/sections/HeroSection.tsx",
+                                            lineNumber: 452,
+                                            columnNumber: 15
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/components/sections/HeroSection.tsx",
+                                    lineNumber: 449,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    className: "px-2 py-0.5 rounded-full bg-sage/15 border border-sage/25 text-sage-light text-[9px] tracking-wider uppercase",
+                                    children: "AI Analysis"
+                                }, void 0, false, {
+                                    fileName: "[project]/components/sections/HeroSection.tsx",
+                                    lineNumber: 454,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/components/sections/HeroSection.tsx",
+                            lineNumber: 448,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "text-sage/50 mb-3 leading-relaxed",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    className: "text-sage-light",
+                                    children: "$"
+                                }, void 0, false, {
+                                    fileName: "[project]/components/sections/HeroSection.tsx",
+                                    lineNumber: 461,
+                                    columnNumber: 13
+                                }, this),
+                                ' ',
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    className: "text-cream/40",
+                                    children: "pxnexus analyze --target hr-ops"
+                                }, void 0, false, {
+                                    fileName: "[project]/components/sections/HeroSection.tsx",
+                                    lineNumber: 462,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/components/sections/HeroSection.tsx",
+                            lineNumber: 460,
+                            columnNumber: 11
+                        }, this),
+                        terminalLines.map((line, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])('mb-1 leading-relaxed', line.isSuccess ? 'text-sage-light' : 'text-cream/60'),
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: line.isSuccess ? 'text-sage font-bold' : 'text-amber/70',
+                                        children: line.prefix
+                                    }, void 0, false, {
+                                        fileName: "[project]/components/sections/HeroSection.tsx",
+                                        lineNumber: 471,
+                                        columnNumber: 15
+                                    }, this),
+                                    line.text
+                                ]
+                            }, i, true, {
+                                fileName: "[project]/components/sections/HeroSection.tsx",
+                                lineNumber: 467,
+                                columnNumber: 13
+                            }, this)),
+                        phase !== 'resetting' && currentLine < steps.length && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "mb-1 leading-relaxed text-cream/60",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    className: "text-amber/70",
+                                    children: steps[currentLine].prefix
+                                }, void 0, false, {
+                                    fileName: "[project]/components/sections/HeroSection.tsx",
+                                    lineNumber: 481,
+                                    columnNumber: 15
+                                }, this),
+                                typedText,
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    className: "terminal-cursor"
+                                }, void 0, false, {
+                                    fileName: "[project]/components/sections/HeroSection.tsx",
+                                    lineNumber: 483,
+                                    columnNumber: 15
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/components/sections/HeroSection.tsx",
+                            lineNumber: 480,
+                            columnNumber: 13
+                        }, this),
+                        phase !== 'resetting' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "mt-3 pt-2 border-t border-sage/10",
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "h-0.5 rounded-full bg-forest-900/60 overflow-hidden",
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "h-full rounded-full bg-gradient-to-r from-sage to-sage-light transition-all duration-500 ease-out",
+                                    style: {
+                                        width: `${Math.min(100, terminalLines.length / steps.length * 100)}%`
+                                    }
+                                }, void 0, false, {
+                                    fileName: "[project]/components/sections/HeroSection.tsx",
+                                    lineNumber: 491,
+                                    columnNumber: 17
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "[project]/components/sections/HeroSection.tsx",
+                                lineNumber: 490,
+                                columnNumber: 15
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "[project]/components/sections/HeroSection.tsx",
+                            lineNumber: 489,
+                            columnNumber: 13
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/components/sections/HeroSection.tsx",
+                    lineNumber: 443,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/components/sections/HeroSection.tsx",
+                lineNumber: 441,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1429,7 +1829,7 @@ function HeroSection() {
                                             fill: "rgba(255,255,255,0.7)"
                                         }, void 0, false, {
                                             fileName: "[project]/components/sections/HeroSection.tsx",
-                                            lineNumber: 202,
+                                            lineNumber: 508,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
@@ -1439,33 +1839,33 @@ function HeroSection() {
                                             strokeLinecap: "round"
                                         }, void 0, false, {
                                             fileName: "[project]/components/sections/HeroSection.tsx",
-                                            lineNumber: 203,
+                                            lineNumber: 509,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/sections/HeroSection.tsx",
-                                    lineNumber: 201,
+                                    lineNumber: 507,
                                     columnNumber: 15
                                 }, this)
                             }, i, false, {
                                 fileName: "[project]/components/sections/HeroSection.tsx",
-                                lineNumber: 200,
+                                lineNumber: 506,
                                 columnNumber: 13
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/components/sections/HeroSection.tsx",
-                        lineNumber: 198,
+                        lineNumber: 504,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                         className: "font-body text-xs text-cream/60 inline-flex items-center gap-1 flex-wrap justify-center",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                children: "1,200+ teams hiring with"
+                                children: "100+ companies redesigned with"
                             }, void 0, false, {
                                 fileName: "[project]/components/sections/HeroSection.tsx",
-                                lineNumber: 209,
+                                lineNumber: 515,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$branding$2f$PxNexusWordmark$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["PxNexusWordmark"], {
@@ -1473,19 +1873,19 @@ function HeroSection() {
                                 className: "font-display text-xs font-semibold"
                             }, void 0, false, {
                                 fileName: "[project]/components/sections/HeroSection.tsx",
-                                lineNumber: 210,
+                                lineNumber: 516,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/sections/HeroSection.tsx",
-                        lineNumber: 208,
+                        lineNumber: 514,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/sections/HeroSection.tsx",
-                lineNumber: 196,
+                lineNumber: 502,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1503,12 +1903,12 @@ function HeroSection() {
                             fill: "currentColor"
                         }, void 0, false, {
                             fileName: "[project]/components/sections/HeroSection.tsx",
-                            lineNumber: 217,
+                            lineNumber: 523,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/sections/HeroSection.tsx",
-                        lineNumber: 216,
+                        lineNumber: 522,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1516,19 +1916,19 @@ function HeroSection() {
                         children: "Rated 4.9 / 5 by HR teams"
                     }, void 0, false, {
                         fileName: "[project]/components/sections/HeroSection.tsx",
-                        lineNumber: 219,
+                        lineNumber: 525,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/sections/HeroSection.tsx",
-                lineNumber: 214,
+                lineNumber: 520,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/sections/HeroSection.tsx",
-        lineNumber: 81,
+        lineNumber: 330,
         columnNumber: 5
     }, this);
 }
@@ -1548,38 +1948,52 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$i18n$2d$context$2e$ts
 ;
 ;
 const pillarIcons = [
+    // Partner First — handshake
     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
         viewBox: "0 0 24 24",
         fill: "none",
         className: "w-6 h-6",
         children: [
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
-                cx: "12",
-                cy: "8",
-                r: "3.5",
-                stroke: "currentColor",
-                strokeWidth: "1.5"
-            }, void 0, false, {
-                fileName: "[project]/components/sections/ThePxFramework.tsx",
-                lineNumber: 8,
-                columnNumber: 5
-            }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
-                d: "M5 20c0-3.3 3.1-6 7-6s7 2.7 7 6",
+                d: "M4 12c0 0 1.5-2 4-2s4 2 4 2 1.5 2 4 2 4-2 4-2",
                 stroke: "currentColor",
                 strokeWidth: "1.5",
-                strokeLinecap: "round"
+                strokeLinecap: "round",
+                strokeLinejoin: "round"
             }, void 0, false, {
                 fileName: "[project]/components/sections/ThePxFramework.tsx",
                 lineNumber: 9,
                 columnNumber: 5
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M4 12l2 4h12l2-4",
+                stroke: "currentColor",
+                strokeWidth: "1.5",
+                strokeLinecap: "round",
+                strokeLinejoin: "round"
+            }, void 0, false, {
+                fileName: "[project]/components/sections/ThePxFramework.tsx",
+                lineNumber: 10,
+                columnNumber: 5
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M9 10V7l3-3 3 3v3",
+                stroke: "currentColor",
+                strokeWidth: "1.5",
+                strokeLinecap: "round",
+                strokeLinejoin: "round"
+            }, void 0, false, {
+                fileName: "[project]/components/sections/ThePxFramework.tsx",
+                lineNumber: 11,
+                columnNumber: 5
             }, ("TURBOPACK compile-time value", void 0))
         ]
-    }, "p", true, {
+    }, "pf", true, {
         fileName: "[project]/components/sections/ThePxFramework.tsx",
-        lineNumber: 7,
+        lineNumber: 8,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0)),
+    // Process Intelligence — hexagon structure
     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
         viewBox: "0 0 24 24",
         fill: "none",
@@ -1592,7 +2006,7 @@ const pillarIcons = [
                 strokeLinejoin: "round"
             }, void 0, false, {
                 fileName: "[project]/components/sections/ThePxFramework.tsx",
-                lineNumber: 12,
+                lineNumber: 15,
                 columnNumber: 5
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
@@ -1602,45 +2016,121 @@ const pillarIcons = [
                 strokeLinecap: "round"
             }, void 0, false, {
                 fileName: "[project]/components/sections/ThePxFramework.tsx",
-                lineNumber: 13,
+                lineNumber: 16,
                 columnNumber: 5
             }, ("TURBOPACK compile-time value", void 0))
         ]
-    }, "ph", true, {
+    }, "pi", true, {
         fileName: "[project]/components/sections/ThePxFramework.tsx",
-        lineNumber: 11,
+        lineNumber: 14,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0)),
+    // People by Design — person + ruler
+    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+        viewBox: "0 0 24 24",
+        fill: "none",
+        className: "w-6 h-6",
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
+                cx: "9",
+                cy: "7",
+                r: "3",
+                stroke: "currentColor",
+                strokeWidth: "1.5"
+            }, void 0, false, {
+                fileName: "[project]/components/sections/ThePxFramework.tsx",
+                lineNumber: 20,
+                columnNumber: 5
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6",
+                stroke: "currentColor",
+                strokeWidth: "1.5",
+                strokeLinecap: "round"
+            }, void 0, false, {
+                fileName: "[project]/components/sections/ThePxFramework.tsx",
+                lineNumber: 21,
+                columnNumber: 5
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M17 3v18M17 7h3M17 11h2M17 15h3",
+                stroke: "currentColor",
+                strokeWidth: "1.5",
+                strokeLinecap: "round"
+            }, void 0, false, {
+                fileName: "[project]/components/sections/ThePxFramework.tsx",
+                lineNumber: 22,
+                columnNumber: 5
+            }, ("TURBOPACK compile-time value", void 0))
+        ]
+    }, "pd", true, {
+        fileName: "[project]/components/sections/ThePxFramework.tsx",
+        lineNumber: 19,
+        columnNumber: 3
+    }, ("TURBOPACK compile-time value", void 0)),
+    // Proof over Promises — shield with check
     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
         viewBox: "0 0 24 24",
         fill: "none",
         className: "w-6 h-6",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
-                d: "M12 21C12 21 4 14.5 4 9a8 8 0 0116 0c0 5.5-8 12-8 12z",
+                d: "M12 3l8 3v5c0 5-3.5 9-8 10C7.5 20 4 16 4 11V6l8-3z",
                 stroke: "currentColor",
                 strokeWidth: "1.5",
                 strokeLinejoin: "round"
             }, void 0, false, {
                 fileName: "[project]/components/sections/ThePxFramework.tsx",
-                lineNumber: 16,
+                lineNumber: 26,
                 columnNumber: 5
             }, ("TURBOPACK compile-time value", void 0)),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
-                cx: "12",
-                cy: "9",
-                r: "2.5",
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M8.5 12l2.5 2.5 4.5-4.5",
                 stroke: "currentColor",
-                strokeWidth: "1.5"
+                strokeWidth: "1.5",
+                strokeLinecap: "round",
+                strokeLinejoin: "round"
             }, void 0, false, {
                 fileName: "[project]/components/sections/ThePxFramework.tsx",
-                lineNumber: 17,
+                lineNumber: 27,
                 columnNumber: 5
             }, ("TURBOPACK compile-time value", void 0))
         ]
-    }, "pa", true, {
+    }, "pp", true, {
         fileName: "[project]/components/sections/ThePxFramework.tsx",
-        lineNumber: 15,
+        lineNumber: 25,
+        columnNumber: 3
+    }, ("TURBOPACK compile-time value", void 0)),
+    // Pioneer New Standards — flag
+    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+        viewBox: "0 0 24 24",
+        fill: "none",
+        className: "w-6 h-6",
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M5 3v18",
+                stroke: "currentColor",
+                strokeWidth: "1.5",
+                strokeLinecap: "round"
+            }, void 0, false, {
+                fileName: "[project]/components/sections/ThePxFramework.tsx",
+                lineNumber: 31,
+                columnNumber: 5
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M5 4h12l-3 4 3 4H5",
+                stroke: "currentColor",
+                strokeWidth: "1.5",
+                strokeLinejoin: "round"
+            }, void 0, false, {
+                fileName: "[project]/components/sections/ThePxFramework.tsx",
+                lineNumber: 32,
+                columnNumber: 5
+            }, ("TURBOPACK compile-time value", void 0))
+        ]
+    }, "pn", true, {
+        fileName: "[project]/components/sections/ThePxFramework.tsx",
+        lineNumber: 30,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0))
 ];
@@ -1686,14 +2176,14 @@ function TiltCard({ children, className, style }) {
                 className: "absolute inset-0 pointer-events-none rounded-2xl z-10 transition-none"
             }, void 0, false, {
                 fileName: "[project]/components/sections/ThePxFramework.tsx",
-                lineNumber: 71,
+                lineNumber: 86,
                 columnNumber: 7
             }, this),
             children
         ]
     }, void 0, true, {
         fileName: "[project]/components/sections/ThePxFramework.tsx",
-        lineNumber: 59,
+        lineNumber: 74,
         columnNumber: 5
     }, this);
 }
@@ -1727,17 +2217,17 @@ function ThePxFramework() {
                         transform: "rotate(-30 160 32)"
                     }, void 0, false, {
                         fileName: "[project]/components/sections/ThePxFramework.tsx",
-                        lineNumber: 99,
+                        lineNumber: 114,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/sections/ThePxFramework.tsx",
-                    lineNumber: 98,
+                    lineNumber: 113,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/sections/ThePxFramework.tsx",
-                lineNumber: 97,
+                lineNumber: 112,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1753,12 +2243,12 @@ function ThePxFramework() {
                                     children: t.framework.eyebrow
                                 }, void 0, false, {
                                     fileName: "[project]/components/sections/ThePxFramework.tsx",
-                                    lineNumber: 107,
+                                    lineNumber: 122,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/sections/ThePxFramework.tsx",
-                                lineNumber: 106,
+                                lineNumber: 121,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -1766,7 +2256,7 @@ function ThePxFramework() {
                                 children: t.framework.headline
                             }, void 0, false, {
                                 fileName: "[project]/components/sections/ThePxFramework.tsx",
-                                lineNumber: 111,
+                                lineNumber: 126,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1774,21 +2264,23 @@ function ThePxFramework() {
                                 children: t.framework.sub
                             }, void 0, false, {
                                 fileName: "[project]/components/sections/ThePxFramework.tsx",
-                                lineNumber: 114,
+                                lineNumber: 129,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/sections/ThePxFramework.tsx",
-                        lineNumber: 105,
+                        lineNumber: 120,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "grid grid-cols-1 lg:grid-cols-3 gap-5",
+                        className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-5",
                         children: t.framework.pillars.map((pillar, i)=>{
                             const featured = 'featured' in pillar && pillar.featured;
+                            // On lg: all cards span 2 cols; 4th card (index 3) starts at col 2 to center the bottom row
+                            const colClass = i === 3 ? 'lg:col-span-2 lg:col-start-2' : 'lg:col-span-2';
                             return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(TiltCard, {
-                                className: `reveal group relative rounded-2xl overflow-hidden ${featured ? 'bg-forest-800' : 'bg-forest-700'}`,
+                                className: `reveal group relative rounded-2xl overflow-hidden ${colClass} ${featured ? 'bg-forest-800' : 'bg-forest-700'}`,
                                 style: {
                                     transitionDelay: `${i * 0.1}s`
                                 },
@@ -1797,7 +2289,7 @@ function ThePxFramework() {
                                         className: "absolute inset-0 rounded-2xl ring-1 ring-sage/25 pointer-events-none z-20"
                                     }, void 0, false, {
                                         fileName: "[project]/components/sections/ThePxFramework.tsx",
-                                        lineNumber: 132,
+                                        lineNumber: 149,
                                         columnNumber: 19
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1807,7 +2299,7 @@ function ThePxFramework() {
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/components/sections/ThePxFramework.tsx",
-                                        lineNumber: 136,
+                                        lineNumber: 153,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1821,7 +2313,7 @@ function ThePxFramework() {
                                                         children: pillarIcons[i]
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/sections/ThePxFramework.tsx",
-                                                        lineNumber: 145,
+                                                        lineNumber: 162,
                                                         columnNumber: 21
                                                     }, this),
                                                     featured && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1829,13 +2321,13 @@ function ThePxFramework() {
                                                         children: "Core"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/sections/ThePxFramework.tsx",
-                                                        lineNumber: 151,
+                                                        lineNumber: 168,
                                                         columnNumber: 23
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/sections/ThePxFramework.tsx",
-                                                lineNumber: 144,
+                                                lineNumber: 161,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1846,7 +2338,7 @@ function ThePxFramework() {
                                                 children: pillar.letter
                                             }, void 0, false, {
                                                 fileName: "[project]/components/sections/ThePxFramework.tsx",
-                                                lineNumber: 158,
+                                                lineNumber: 175,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -1854,7 +2346,7 @@ function ThePxFramework() {
                                                 children: pillar.label
                                             }, void 0, false, {
                                                 fileName: "[project]/components/sections/ThePxFramework.tsx",
-                                                lineNumber: 163,
+                                                lineNumber: 180,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1862,7 +2354,7 @@ function ThePxFramework() {
                                                 children: pillar.tagline
                                             }, void 0, false, {
                                                 fileName: "[project]/components/sections/ThePxFramework.tsx",
-                                                lineNumber: 166,
+                                                lineNumber: 183,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1870,7 +2362,7 @@ function ThePxFramework() {
                                                 children: pillar.description
                                             }, void 0, false, {
                                                 fileName: "[project]/components/sections/ThePxFramework.tsx",
-                                                lineNumber: 169,
+                                                lineNumber: 186,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -1894,12 +2386,12 @@ function ThePxFramework() {
                                                                     strokeLinejoin: "round"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/sections/ThePxFramework.tsx",
-                                                                    lineNumber: 179,
+                                                                    lineNumber: 196,
                                                                     columnNumber: 27
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/sections/ThePxFramework.tsx",
-                                                                lineNumber: 178,
+                                                                lineNumber: 195,
                                                                 columnNumber: 25
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1907,18 +2399,18 @@ function ThePxFramework() {
                                                                 children: f
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/sections/ThePxFramework.tsx",
-                                                                lineNumber: 181,
+                                                                lineNumber: 198,
                                                                 columnNumber: 25
                                                             }, this)
                                                         ]
                                                     }, f, true, {
                                                         fileName: "[project]/components/sections/ThePxFramework.tsx",
-                                                        lineNumber: 176,
+                                                        lineNumber: 193,
                                                         columnNumber: 23
                                                     }, this))
                                             }, void 0, false, {
                                                 fileName: "[project]/components/sections/ThePxFramework.tsx",
-                                                lineNumber: 174,
+                                                lineNumber: 191,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1928,25 +2420,25 @@ function ThePxFramework() {
                                                 }
                                             }, void 0, false, {
                                                 fileName: "[project]/components/sections/ThePxFramework.tsx",
-                                                lineNumber: 187,
+                                                lineNumber: 204,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/sections/ThePxFramework.tsx",
-                                        lineNumber: 142,
+                                        lineNumber: 159,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, pillar.label, true, {
                                 fileName: "[project]/components/sections/ThePxFramework.tsx",
-                                lineNumber: 124,
+                                lineNumber: 141,
                                 columnNumber: 15
                             }, this);
                         })
                     }, void 0, false, {
                         fileName: "[project]/components/sections/ThePxFramework.tsx",
-                        lineNumber: 120,
+                        lineNumber: 135,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1956,24 +2448,24 @@ function ThePxFramework() {
                             children: t.framework.footnote
                         }, void 0, false, {
                             fileName: "[project]/components/sections/ThePxFramework.tsx",
-                            lineNumber: 197,
+                            lineNumber: 214,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/sections/ThePxFramework.tsx",
-                        lineNumber: 196,
+                        lineNumber: 213,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/sections/ThePxFramework.tsx",
-                lineNumber: 103,
+                lineNumber: 118,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/sections/ThePxFramework.tsx",
-        lineNumber: 91,
+        lineNumber: 106,
         columnNumber: 5
     }, this);
 }
@@ -2246,68 +2738,126 @@ function NexusIcon({ active }) {
         columnNumber: 5
     }, this);
 }
-/* ─── Animated flow arrow (horizontal) ─── */ function FlowArrow({ active, reverse }) {
+/* ─── Animated data-flow arrow (horizontal) ─── */ function DataFlowArrow({ active, reverse }) {
+    const dur = active ? '1.2s' : '2.4s';
+    const halfDur = active ? '0.6s' : '1.2s';
+    const pathId = reverse ? 'flowPath-r' : 'flowPath-f';
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])('flex items-center', reverse && 'flex-row-reverse'),
-        children: [
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "relative h-px w-full overflow-hidden",
-                children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "absolute inset-0 h-px",
-                        style: {
-                            background: active ? 'linear-gradient(90deg, rgba(92,143,114,0.7), rgba(238,207,148,0.7))' : 'rgba(92,143,114,0.2)',
-                            transition: 'background 0.4s ease'
-                        }
+        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])('flex items-center w-full', reverse && 'flex-row-reverse'),
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+            viewBox: "0 0 80 8",
+            preserveAspectRatio: "none",
+            className: "w-full h-8",
+            overflow: "visible",
+            "aria-hidden": "true",
+            children: [
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("defs", {
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                        id: pathId,
+                        d: "M 0 4 L 80 4"
                     }, void 0, false, {
                         fileName: "[project]/components/sections/TechNexus.tsx",
-                        lineNumber: 84,
-                        columnNumber: 9
-                    }, this),
-                    active && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "absolute top-0 h-px w-8",
-                        style: {
-                            background: 'linear-gradient(90deg, transparent, white, transparent)',
-                            animation: 'flowPulse 1.4s linear infinite'
-                        }
-                    }, void 0, false, {
-                        fileName: "[project]/components/sections/TechNexus.tsx",
-                        lineNumber: 89,
+                        lineNumber: 88,
                         columnNumber: 11
                     }, this)
-                ]
-            }, void 0, true, {
-                fileName: "[project]/components/sections/TechNexus.tsx",
-                lineNumber: 83,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                viewBox: "0 0 10 10",
-                fill: "none",
-                className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])('w-3 h-3 flex-shrink-0', reverse && 'rotate-180'),
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
-                    d: "M2 5h6M5 2l3 3-3 3",
-                    stroke: active ? '#7db090' : 'rgba(92,143,114,0.3)',
-                    strokeWidth: "1.5",
-                    strokeLinecap: "round",
-                    strokeLinejoin: "round",
+                }, void 0, false, {
+                    fileName: "[project]/components/sections/TechNexus.tsx",
+                    lineNumber: 87,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("line", {
+                    x1: "0",
+                    y1: "4",
+                    x2: "80",
+                    y2: "4",
+                    stroke: active ? 'rgba(92,143,114,0.5)' : 'rgba(92,143,114,0.18)',
+                    strokeWidth: "0.75",
                     style: {
                         transition: 'stroke 0.4s ease'
                     }
                 }, void 0, false, {
                     fileName: "[project]/components/sections/TechNexus.tsx",
-                    lineNumber: 99,
+                    lineNumber: 91,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
+                    r: "2",
+                    fill: active ? '#7db090' : 'rgba(92,143,114,0.3)',
+                    style: {
+                        filter: active ? 'drop-shadow(0 0 3px rgba(92,143,114,0.8))' : 'none',
+                        transition: 'fill 0.4s ease'
+                    },
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("animateMotion", {
+                        dur: dur,
+                        repeatCount: "indefinite",
+                        begin: "0s",
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("mpath", {
+                            href: `#${pathId}`
+                        }, void 0, false, {
+                            fileName: "[project]/components/sections/TechNexus.tsx",
+                            lineNumber: 100,
+                            columnNumber: 13
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "[project]/components/sections/TechNexus.tsx",
+                        lineNumber: 99,
+                        columnNumber: 11
+                    }, this)
+                }, void 0, false, {
+                    fileName: "[project]/components/sections/TechNexus.tsx",
+                    lineNumber: 97,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
+                    r: "1.5",
+                    fill: active ? 'rgba(92,143,114,0.6)' : 'rgba(92,143,114,0.15)',
+                    style: {
+                        transition: 'fill 0.4s ease'
+                    },
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("animateMotion", {
+                        dur: dur,
+                        repeatCount: "indefinite",
+                        begin: halfDur,
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("mpath", {
+                            href: `#${pathId}`
+                        }, void 0, false, {
+                            fileName: "[project]/components/sections/TechNexus.tsx",
+                            lineNumber: 107,
+                            columnNumber: 13
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "[project]/components/sections/TechNexus.tsx",
+                        lineNumber: 106,
+                        columnNumber: 11
+                    }, this)
+                }, void 0, false, {
+                    fileName: "[project]/components/sections/TechNexus.tsx",
+                    lineNumber: 104,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                    d: reverse ? 'M 5 2 L 0 4 L 5 6' : 'M 75 2 L 80 4 L 75 6',
+                    stroke: active ? '#7db090' : 'rgba(92,143,114,0.3)',
+                    strokeWidth: "0.75",
+                    fill: "none",
+                    strokeLinecap: "round",
+                    style: {
+                        transition: 'stroke 0.4s ease'
+                    }
+                }, void 0, false, {
+                    fileName: "[project]/components/sections/TechNexus.tsx",
+                    lineNumber: 111,
                     columnNumber: 9
                 }, this)
-            }, void 0, false, {
-                fileName: "[project]/components/sections/TechNexus.tsx",
-                lineNumber: 98,
-                columnNumber: 7
-            }, this)
-        ]
-    }, void 0, true, {
+            ]
+        }, void 0, true, {
+            fileName: "[project]/components/sections/TechNexus.tsx",
+            lineNumber: 86,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
         fileName: "[project]/components/sections/TechNexus.tsx",
-        lineNumber: 82,
+        lineNumber: 85,
         columnNumber: 5
     }, this);
 }
@@ -2326,7 +2876,7 @@ function NexusIcon({ active }) {
                 strokeWidth: "1.5"
             }, void 0, false, {
                 fileName: "[project]/components/sections/TechNexus.tsx",
-                lineNumber: 110,
+                lineNumber: 125,
                 columnNumber: 5
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
@@ -2336,13 +2886,13 @@ function NexusIcon({ active }) {
                 strokeLinecap: "round"
             }, void 0, false, {
                 fileName: "[project]/components/sections/TechNexus.tsx",
-                lineNumber: 111,
+                lineNumber: 126,
                 columnNumber: 5
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, "1", true, {
         fileName: "[project]/components/sections/TechNexus.tsx",
-        lineNumber: 109,
+        lineNumber: 124,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0)),
     // Culture
@@ -2358,7 +2908,7 @@ function NexusIcon({ active }) {
                 strokeLinejoin: "round"
             }, void 0, false, {
                 fileName: "[project]/components/sections/TechNexus.tsx",
-                lineNumber: 116,
+                lineNumber: 131,
                 columnNumber: 5
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
@@ -2369,13 +2919,13 @@ function NexusIcon({ active }) {
                 strokeWidth: "1.5"
             }, void 0, false, {
                 fileName: "[project]/components/sections/TechNexus.tsx",
-                lineNumber: 117,
+                lineNumber: 132,
                 columnNumber: 5
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, "2", true, {
         fileName: "[project]/components/sections/TechNexus.tsx",
-        lineNumber: 115,
+        lineNumber: 130,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0)),
     // Retention
@@ -2391,12 +2941,12 @@ function NexusIcon({ active }) {
             strokeLinecap: "round"
         }, void 0, false, {
             fileName: "[project]/components/sections/TechNexus.tsx",
-            lineNumber: 121,
+            lineNumber: 136,
             columnNumber: 5
         }, ("TURBOPACK compile-time value", void 0))
     }, "3", false, {
         fileName: "[project]/components/sections/TechNexus.tsx",
-        lineNumber: 120,
+        lineNumber: 135,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0)),
     // Integrations
@@ -2415,7 +2965,7 @@ function NexusIcon({ active }) {
                 strokeWidth: "1.5"
             }, void 0, false, {
                 fileName: "[project]/components/sections/TechNexus.tsx",
-                lineNumber: 125,
+                lineNumber: 140,
                 columnNumber: 5
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
@@ -2425,13 +2975,13 @@ function NexusIcon({ active }) {
                 strokeLinecap: "round"
             }, void 0, false, {
                 fileName: "[project]/components/sections/TechNexus.tsx",
-                lineNumber: 126,
+                lineNumber: 141,
                 columnNumber: 5
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, "4", true, {
         fileName: "[project]/components/sections/TechNexus.tsx",
-        lineNumber: 124,
+        lineNumber: 139,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0))
 ];
@@ -2485,7 +3035,7 @@ function TechNexus() {
                 }
             }, void 0, false, {
                 fileName: "[project]/components/sections/TechNexus.tsx",
-                lineNumber: 175,
+                lineNumber: 190,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2495,7 +3045,7 @@ function TechNexus() {
                 }
             }, void 0, false, {
                 fileName: "[project]/components/sections/TechNexus.tsx",
-                lineNumber: 179,
+                lineNumber: 194,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2505,14 +3055,7 @@ function TechNexus() {
                 }
             }, void 0, false, {
                 fileName: "[project]/components/sections/TechNexus.tsx",
-                lineNumber: 181,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("style", {
-                children: `@keyframes flowPulse { 0% { left: -2rem; } 100% { left: calc(100% + 2rem); } }`
-            }, void 0, false, {
-                fileName: "[project]/components/sections/TechNexus.tsx",
-                lineNumber: 185,
+                lineNumber: 196,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2528,12 +3071,12 @@ function TechNexus() {
                                     children: t.tech.eyebrow
                                 }, void 0, false, {
                                     fileName: "[project]/components/sections/TechNexus.tsx",
-                                    lineNumber: 192,
+                                    lineNumber: 204,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/sections/TechNexus.tsx",
-                                lineNumber: 191,
+                                lineNumber: 203,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -2541,7 +3084,7 @@ function TechNexus() {
                                 children: t.tech.headline
                             }, void 0, false, {
                                 fileName: "[project]/components/sections/TechNexus.tsx",
-                                lineNumber: 194,
+                                lineNumber: 206,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2549,13 +3092,13 @@ function TechNexus() {
                                 children: t.tech.sub
                             }, void 0, false, {
                                 fileName: "[project]/components/sections/TechNexus.tsx",
-                                lineNumber: 197,
+                                lineNumber: 209,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/sections/TechNexus.tsx",
-                        lineNumber: 190,
+                        lineNumber: 202,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2573,7 +3116,7 @@ function TechNexus() {
                                                 className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])('absolute top-0 left-6 right-6 h-px transition-all duration-400', isCompanyActive ? 'bg-gradient-to-r from-transparent via-sage to-transparent' : 'bg-transparent')
                                             }, void 0, false, {
                                                 fileName: "[project]/components/sections/TechNexus.tsx",
-                                                lineNumber: 218,
+                                                lineNumber: 230,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2583,7 +3126,7 @@ function TechNexus() {
                                                         active: isCompanyActive
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/sections/TechNexus.tsx",
-                                                        lineNumber: 222,
+                                                        lineNumber: 234,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2593,7 +3136,7 @@ function TechNexus() {
                                                                 children: "企業 / Company"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/sections/TechNexus.tsx",
-                                                                lineNumber: 224,
+                                                                lineNumber: 236,
                                                                 columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -2601,19 +3144,19 @@ function TechNexus() {
                                                                 children: "What Companies Bring"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/sections/TechNexus.tsx",
-                                                                lineNumber: 225,
+                                                                lineNumber: 237,
                                                                 columnNumber: 19
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/sections/TechNexus.tsx",
-                                                        lineNumber: 223,
+                                                        lineNumber: 235,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/sections/TechNexus.tsx",
-                                                lineNumber: 221,
+                                                lineNumber: 233,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -2643,7 +3186,7 @@ function TechNexus() {
                                                                 children: item.icon
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/sections/TechNexus.tsx",
-                                                                lineNumber: 240,
+                                                                lineNumber: 252,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2651,18 +3194,18 @@ function TechNexus() {
                                                                 children: item.label
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/sections/TechNexus.tsx",
-                                                                lineNumber: 241,
+                                                                lineNumber: 253,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, item.label, true, {
                                                         fileName: "[project]/components/sections/TechNexus.tsx",
-                                                        lineNumber: 239,
+                                                        lineNumber: 251,
                                                         columnNumber: 19
                                                     }, this))
                                             }, void 0, false, {
                                                 fileName: "[project]/components/sections/TechNexus.tsx",
-                                                lineNumber: 232,
+                                                lineNumber: 244,
                                                 columnNumber: 15
                                             }, this),
                                             isCompanyActive && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2672,32 +3215,32 @@ function TechNexus() {
                                                     children: "140+ data points collected from your company profile"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/sections/TechNexus.tsx",
-                                                    lineNumber: 249,
+                                                    lineNumber: 261,
                                                     columnNumber: 19
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/components/sections/TechNexus.tsx",
-                                                lineNumber: 248,
+                                                lineNumber: 260,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/sections/TechNexus.tsx",
-                                        lineNumber: 207,
+                                        lineNumber: 219,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "hidden lg:flex items-center px-3 w-20",
-                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(FlowArrow, {
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(DataFlowArrow, {
                                             active: isCompanyActive
                                         }, void 0, false, {
                                             fileName: "[project]/components/sections/TechNexus.tsx",
-                                            lineNumber: 258,
+                                            lineNumber: 270,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/components/sections/TechNexus.tsx",
-                                        lineNumber: 257,
+                                        lineNumber: 269,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2717,17 +3260,17 @@ function TechNexus() {
                                                 }
                                             }, void 0, false, {
                                                 fileName: "[project]/components/sections/TechNexus.tsx",
-                                                lineNumber: 263,
+                                                lineNumber: 275,
                                                 columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/components/sections/TechNexus.tsx",
-                                            lineNumber: 262,
+                                            lineNumber: 274,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/components/sections/TechNexus.tsx",
-                                        lineNumber: 261,
+                                        lineNumber: 273,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2739,19 +3282,30 @@ function TechNexus() {
                                                 className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])('absolute top-0 left-6 right-6 h-px transition-all duration-400', isNexusActive ? 'bg-gradient-to-r from-transparent via-amber to-transparent' : 'bg-transparent')
                                             }, void 0, false, {
                                                 fileName: "[project]/components/sections/TechNexus.tsx",
-                                                lineNumber: 280,
+                                                lineNumber: 292,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 className: "flex justify-center mb-5",
                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])('relative w-20 h-20 rounded-full flex items-center justify-center transition-all duration-400', isNexusActive ? 'bg-amber/15 ring-2 ring-amber/30' : 'bg-amber/8 ring-1 ring-amber/15'),
+                                                    className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])('relative w-20 h-20 rounded-full flex items-center justify-center transition-all duration-400 overflow-hidden', isNexusActive ? 'bg-amber/15 ring-2 ring-amber/30' : 'bg-amber/8 ring-1 ring-amber/15'),
                                                     children: [
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(NexusIcon, {
                                                             active: isNexusActive
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/sections/TechNexus.tsx",
-                                                            lineNumber: 287,
+                                                            lineNumber: 299,
+                                                            columnNumber: 19
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "scan-overlay opacity-40",
+                                                            "aria-hidden": "true",
+                                                            style: {
+                                                                animationDuration: '4s'
+                                                            }
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/components/sections/TechNexus.tsx",
+                                                            lineNumber: 301,
                                                             columnNumber: 19
                                                         }, this),
                                                         isNexusActive && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2761,18 +3315,18 @@ function TechNexus() {
                                                             }
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/sections/TechNexus.tsx",
-                                                            lineNumber: 289,
+                                                            lineNumber: 303,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/sections/TechNexus.tsx",
-                                                    lineNumber: 285,
+                                                    lineNumber: 297,
                                                     columnNumber: 17
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/components/sections/TechNexus.tsx",
-                                                lineNumber: 284,
+                                                lineNumber: 296,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2783,7 +3337,7 @@ function TechNexus() {
                                                         children: "AI Engine"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/sections/TechNexus.tsx",
-                                                        lineNumber: 296,
+                                                        lineNumber: 310,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -2794,7 +3348,7 @@ function TechNexus() {
                                                                 className: "inline"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/sections/TechNexus.tsx",
-                                                                lineNumber: 299,
+                                                                lineNumber: 313,
                                                                 columnNumber: 19
                                                             }, this),
                                                             ' ',
@@ -2802,7 +3356,7 @@ function TechNexus() {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/sections/TechNexus.tsx",
-                                                        lineNumber: 297,
+                                                        lineNumber: 311,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2810,13 +3364,13 @@ function TechNexus() {
                                                         children: "Analyzes 140+ signals to find aligned pairs"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/sections/TechNexus.tsx",
-                                                        lineNumber: 302,
+                                                        lineNumber: 316,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/sections/TechNexus.tsx",
-                                                lineNumber: 295,
+                                                lineNumber: 309,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2830,7 +3384,7 @@ function TechNexus() {
                                                                 children: "Match Score"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/sections/TechNexus.tsx",
-                                                                lineNumber: 312,
+                                                                lineNumber: 326,
                                                                 columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2838,13 +3392,13 @@ function TechNexus() {
                                                                 children: "94%"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/sections/TechNexus.tsx",
-                                                                lineNumber: 313,
+                                                                lineNumber: 327,
                                                                 columnNumber: 19
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/sections/TechNexus.tsx",
-                                                        lineNumber: 311,
+                                                        lineNumber: 325,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2858,12 +3412,12 @@ function TechNexus() {
                                                             }
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/sections/TechNexus.tsx",
-                                                            lineNumber: 317,
+                                                            lineNumber: 331,
                                                             columnNumber: 19
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/sections/TechNexus.tsx",
-                                                        lineNumber: 316,
+                                                        lineNumber: 330,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2885,7 +3439,7 @@ function TechNexus() {
                                                                         children: m.pct
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/sections/TechNexus.tsx",
-                                                                        lineNumber: 332,
+                                                                        lineNumber: 346,
                                                                         columnNumber: 23
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2893,45 +3447,45 @@ function TechNexus() {
                                                                         children: m.label
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/sections/TechNexus.tsx",
-                                                                        lineNumber: 334,
+                                                                        lineNumber: 348,
                                                                         columnNumber: 23
                                                                     }, this)
                                                                 ]
                                                             }, m.label, true, {
                                                                 fileName: "[project]/components/sections/TechNexus.tsx",
-                                                                lineNumber: 331,
+                                                                lineNumber: 345,
                                                                 columnNumber: 21
                                                             }, this))
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/sections/TechNexus.tsx",
-                                                        lineNumber: 326,
+                                                        lineNumber: 340,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/sections/TechNexus.tsx",
-                                                lineNumber: 309,
+                                                lineNumber: 323,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/sections/TechNexus.tsx",
-                                        lineNumber: 270,
+                                        lineNumber: 282,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "hidden lg:flex items-center px-3 w-20",
-                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(FlowArrow, {
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(DataFlowArrow, {
                                             active: isTalentActive,
                                             reverse: true
                                         }, void 0, false, {
                                             fileName: "[project]/components/sections/TechNexus.tsx",
-                                            lineNumber: 343,
+                                            lineNumber: 357,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/components/sections/TechNexus.tsx",
-                                        lineNumber: 342,
+                                        lineNumber: 356,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2951,17 +3505,17 @@ function TechNexus() {
                                                 }
                                             }, void 0, false, {
                                                 fileName: "[project]/components/sections/TechNexus.tsx",
-                                                lineNumber: 348,
+                                                lineNumber: 362,
                                                 columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/components/sections/TechNexus.tsx",
-                                            lineNumber: 347,
+                                            lineNumber: 361,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/components/sections/TechNexus.tsx",
-                                        lineNumber: 346,
+                                        lineNumber: 360,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2973,7 +3527,7 @@ function TechNexus() {
                                                 className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])('absolute top-0 left-6 right-6 h-px transition-all duration-400', isTalentActive ? 'bg-gradient-to-r from-transparent via-amber to-transparent' : 'bg-transparent')
                                             }, void 0, false, {
                                                 fileName: "[project]/components/sections/TechNexus.tsx",
-                                                lineNumber: 365,
+                                                lineNumber: 379,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2983,7 +3537,7 @@ function TechNexus() {
                                                         active: isTalentActive
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/sections/TechNexus.tsx",
-                                                        lineNumber: 369,
+                                                        lineNumber: 383,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2993,7 +3547,7 @@ function TechNexus() {
                                                                 children: "人材 / Talent"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/sections/TechNexus.tsx",
-                                                                lineNumber: 371,
+                                                                lineNumber: 385,
                                                                 columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -3001,19 +3555,19 @@ function TechNexus() {
                                                                 children: "What Talent Brings"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/sections/TechNexus.tsx",
-                                                                lineNumber: 372,
+                                                                lineNumber: 386,
                                                                 columnNumber: 19
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/sections/TechNexus.tsx",
-                                                        lineNumber: 370,
+                                                        lineNumber: 384,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/sections/TechNexus.tsx",
-                                                lineNumber: 368,
+                                                lineNumber: 382,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -3043,7 +3597,7 @@ function TechNexus() {
                                                                 children: item.icon
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/sections/TechNexus.tsx",
-                                                                lineNumber: 387,
+                                                                lineNumber: 401,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3051,18 +3605,18 @@ function TechNexus() {
                                                                 children: item.label
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/sections/TechNexus.tsx",
-                                                                lineNumber: 388,
+                                                                lineNumber: 402,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, item.label, true, {
                                                         fileName: "[project]/components/sections/TechNexus.tsx",
-                                                        lineNumber: 386,
+                                                        lineNumber: 400,
                                                         columnNumber: 19
                                                     }, this))
                                             }, void 0, false, {
                                                 fileName: "[project]/components/sections/TechNexus.tsx",
-                                                lineNumber: 379,
+                                                lineNumber: 393,
                                                 columnNumber: 15
                                             }, this),
                                             isTalentActive && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3072,24 +3626,24 @@ function TechNexus() {
                                                     children: "Candidate profile built from behavior, not just CVs"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/sections/TechNexus.tsx",
-                                                    lineNumber: 396,
+                                                    lineNumber: 410,
                                                     columnNumber: 19
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/components/sections/TechNexus.tsx",
-                                                lineNumber: 395,
+                                                lineNumber: 409,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/sections/TechNexus.tsx",
-                                        lineNumber: 355,
+                                        lineNumber: 369,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/sections/TechNexus.tsx",
-                                lineNumber: 204,
+                                lineNumber: 216,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3102,7 +3656,7 @@ function TechNexus() {
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/components/sections/TechNexus.tsx",
-                                        lineNumber: 406,
+                                        lineNumber: 420,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3121,12 +3675,12 @@ function TechNexus() {
                                                     fillOpacity: "0.7"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/sections/TechNexus.tsx",
-                                                    lineNumber: 414,
+                                                    lineNumber: 428,
                                                     columnNumber: 17
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/components/sections/TechNexus.tsx",
-                                                lineNumber: 413,
+                                                lineNumber: 427,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3134,7 +3688,7 @@ function TechNexus() {
                                                 children: "Successful placement + continued engagement"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/sections/TechNexus.tsx",
-                                                lineNumber: 417,
+                                                lineNumber: 431,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
@@ -3147,30 +3701,30 @@ function TechNexus() {
                                                     fillOpacity: "0.7"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/sections/TechNexus.tsx",
-                                                    lineNumber: 419,
+                                                    lineNumber: 433,
                                                     columnNumber: 17
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/components/sections/TechNexus.tsx",
-                                                lineNumber: 418,
+                                                lineNumber: 432,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/sections/TechNexus.tsx",
-                                        lineNumber: 408,
+                                        lineNumber: 422,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/sections/TechNexus.tsx",
-                                lineNumber: 405,
+                                lineNumber: 419,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/sections/TechNexus.tsx",
-                        lineNumber: 203,
+                        lineNumber: 215,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3184,7 +3738,7 @@ function TechNexus() {
                                             className: "absolute left-0 top-4 bottom-4 w-px bg-sage/10"
                                         }, void 0, false, {
                                             fileName: "[project]/components/sections/TechNexus.tsx",
-                                            lineNumber: 436,
+                                            lineNumber: 450,
                                             columnNumber: 27
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3192,7 +3746,7 @@ function TechNexus() {
                                             children: s.value
                                         }, void 0, false, {
                                             fileName: "[project]/components/sections/TechNexus.tsx",
-                                            lineNumber: 437,
+                                            lineNumber: 451,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3200,23 +3754,23 @@ function TechNexus() {
                                             children: s.label
                                         }, void 0, false, {
                                             fileName: "[project]/components/sections/TechNexus.tsx",
-                                            lineNumber: 441,
+                                            lineNumber: 455,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, s.label, true, {
                                     fileName: "[project]/components/sections/TechNexus.tsx",
-                                    lineNumber: 430,
+                                    lineNumber: 444,
                                     columnNumber: 15
                                 }, this))
                         }, void 0, false, {
                             fileName: "[project]/components/sections/TechNexus.tsx",
-                            lineNumber: 428,
+                            lineNumber: 442,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/sections/TechNexus.tsx",
-                        lineNumber: 427,
+                        lineNumber: 441,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3234,7 +3788,7 @@ function TechNexus() {
                                         children: featureIcons[i]
                                     }, void 0, false, {
                                         fileName: "[project]/components/sections/TechNexus.tsx",
-                                        lineNumber: 464,
+                                        lineNumber: 478,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3248,7 +3802,7 @@ function TechNexus() {
                                                         children: feature.title
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/sections/TechNexus.tsx",
-                                                        lineNumber: 472,
+                                                        lineNumber: 486,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3256,13 +3810,13 @@ function TechNexus() {
                                                         children: featureNode[i] === 'nexus' ? 'AI Core' : featureNode[i] === 'company' ? 'Company' : 'Talent'
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/sections/TechNexus.tsx",
-                                                        lineNumber: 477,
+                                                        lineNumber: 491,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/sections/TechNexus.tsx",
-                                                lineNumber: 471,
+                                                lineNumber: 485,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3270,13 +3824,13 @@ function TechNexus() {
                                                 children: feature.description
                                             }, void 0, false, {
                                                 fileName: "[project]/components/sections/TechNexus.tsx",
-                                                lineNumber: 490,
+                                                lineNumber: 504,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/sections/TechNexus.tsx",
-                                        lineNumber: 470,
+                                        lineNumber: 484,
                                         columnNumber: 15
                                     }, this),
                                     activeFeature === i && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3285,23 +3839,23 @@ function TechNexus() {
                                             className: "w-1.5 h-1.5 rounded-full bg-sage animate-pulse"
                                         }, void 0, false, {
                                             fileName: "[project]/components/sections/TechNexus.tsx",
-                                            lineNumber: 494,
+                                            lineNumber: 508,
                                             columnNumber: 19
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/components/sections/TechNexus.tsx",
-                                        lineNumber: 493,
+                                        lineNumber: 507,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, feature.title, true, {
                                 fileName: "[project]/components/sections/TechNexus.tsx",
-                                lineNumber: 452,
+                                lineNumber: 466,
                                 columnNumber: 13
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/components/sections/TechNexus.tsx",
-                        lineNumber: 450,
+                        lineNumber: 464,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3323,35 +3877,35 @@ function TechNexus() {
                                         strokeLinejoin: "round"
                                     }, void 0, false, {
                                         fileName: "[project]/components/sections/TechNexus.tsx",
-                                        lineNumber: 507,
+                                        lineNumber: 521,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/sections/TechNexus.tsx",
-                                    lineNumber: 506,
+                                    lineNumber: 520,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/sections/TechNexus.tsx",
-                            lineNumber: 503,
+                            lineNumber: 517,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/sections/TechNexus.tsx",
-                        lineNumber: 502,
+                        lineNumber: 516,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/sections/TechNexus.tsx",
-                lineNumber: 187,
+                lineNumber: 199,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/sections/TechNexus.tsx",
-        lineNumber: 169,
+        lineNumber: 184,
         columnNumber: 5
     }, this);
 }

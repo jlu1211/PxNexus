@@ -3,7 +3,9 @@
 import { useEffect, useRef, useState } from 'react'
 import { useI18n } from '@/lib/i18n-context'
 import { PxNexusWordmark } from '@/components/branding/PxNexusWordmark'
+import { cn } from '@/lib/utils'
 
+/* ─── Typewriter ─── */
 function TypewriterText({ text, delay = 0 }: { text: string; delay?: number }) {
   const [displayed, setDisplayed] = useState('')
   const [started, setStarted] = useState(false)
@@ -35,18 +37,77 @@ function TypewriterText({ text, delay = 0 }: { text: string; delay?: number }) {
   )
 }
 
+/* ─── Canvas particle types ─── */
+interface Particle {
+  x: number
+  y: number
+  vx: number
+  vy: number
+  r: number
+  isAmber: boolean
+  brightness: number
+}
+
+/* ─── AI Terminal steps ─── */
+type TerminalStep = {
+  prefix: string
+  text: string
+  delay: number
+  isSuccess?: boolean
+}
+
+const TERMINAL_STEPS: Record<string, TerminalStep[]> = {
+  en: [
+    { prefix: '> ', text: 'Scanning: 承認フロー',       delay: 500 },
+    { prefix: '> ', text: 'Manual steps found: 7',     delay: 900 },
+    { prefix: '> ', text: 'Automatable: 5 / 7 (71%)',  delay: 700 },
+    { prefix: '> ', text: 'Estimated reduction: -62%', delay: 800 },
+    { prefix: '✓ ', text: 'Redesign plan ready',       delay: 500, isSuccess: true },
+  ],
+  ja: [
+    { prefix: '> ', text: 'スキャン中: 承認フロー',      delay: 500 },
+    { prefix: '> ', text: '手動ステップ検出: 7件',       delay: 900 },
+    { prefix: '> ', text: '自動化可能: 5 / 7 (71%)',    delay: 700 },
+    { prefix: '> ', text: '削減予測: -62% 工数',        delay: 800 },
+    { prefix: '✓ ', text: '再設計プランを生成しました',   delay: 500, isSuccess: true },
+  ],
+}
+
+/* ─── Canvas neural network helpers ─── */
+function initParticles(w: number, h: number): Particle[] {
+  const count = w < 768 ? 30 : 60
+  return Array.from({ length: count }, () => ({
+    x: Math.random() * w,
+    y: Math.random() * h,
+    vx: (Math.random() - 0.5) * 0.5,
+    vy: (Math.random() - 0.5) * 0.5,
+    r: 1.5 + Math.random() * 2.5,
+    isAmber: Math.random() < 0.12,
+    brightness: 0,
+  }))
+}
+
+/* ─── HeroSection ─── */
 export default function HeroSection() {
-  const { t } = useI18n()
+  const { t, locale } = useI18n()
   const sectionRef = useRef<HTMLElement>(null)
   const glowRef = useRef<HTMLDivElement>(null)
+  const canvasRef = useRef<HTMLCanvasElement>(null)
+  const mousePosRef = useRef({ x: -9999, y: -9999 })
 
+  // Terminal state
+  const [terminalLines, setTerminalLines] = useState<TerminalStep[]>([])
+  const [currentLine, setCurrentLine] = useState(0)
+  const [typedText, setTypedText] = useState('')
+  const [phase, setPhase] = useState<'typing' | 'pausing' | 'resetting'>('typing')
+  const timeoutsRef = useRef<ReturnType<typeof setTimeout>[]>([])
+
+  /* ─── Mouse glow + parallax ─── */
   useEffect(() => {
     const el = sectionRef.current
     if (!el) return
-
     let rafId = 0
 
-    // Parallax orbs on scroll
     const onScroll = () => {
       const y = window.scrollY
       const orb1 = el.querySelector<HTMLElement>('.orb-1')
@@ -55,7 +116,6 @@ export default function HeroSection() {
       if (orb2) orb2.style.transform = `translateY(${y * -0.08}px)`
     }
 
-    // Mouse-tracking torch glow
     const onMouseMove = (e: MouseEvent) => {
       cancelAnimationFrame(rafId)
       rafId = requestAnimationFrame(() => {
@@ -65,6 +125,7 @@ export default function HeroSection() {
         const y = ((e.clientY - rect.top) / rect.height) * 100
         glowRef.current.style.background =
           `radial-gradient(600px circle at ${x}% ${y}%, rgba(200,151,90,0.07) 0%, rgba(92,143,114,0.04) 40%, transparent 70%)`
+        mousePosRef.current = { x: e.clientX - rect.left, y: e.clientY - rect.top }
       })
     }
 
@@ -76,6 +137,194 @@ export default function HeroSection() {
       cancelAnimationFrame(rafId)
     }
   }, [])
+
+  /* ─── Canvas neural network ─── */
+  useEffect(() => {
+    const canvas = canvasRef.current
+    const el = sectionRef.current
+    if (!canvas || !el) return
+    const ctx = canvas.getContext('2d')
+    if (!ctx) return
+
+    const CONNECTION_DIST = 120
+    let animId = 0
+    let particles: Particle[] = []
+
+    const resize = () => {
+      canvas.width = el.offsetWidth
+      canvas.height = el.offsetHeight
+      particles = initParticles(canvas.width, canvas.height)
+    }
+    resize()
+
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+    const drawFrame = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+      const { x: mx, y: my } = mousePosRef.current
+
+      for (const p of particles) {
+        if (!prefersReduced) {
+          p.x += p.vx
+          p.y += p.vy
+          if (p.x < 0 || p.x > canvas.width)  { p.vx *= -0.98; p.x = Math.max(0, Math.min(canvas.width,  p.x)) }
+          if (p.y < 0 || p.y > canvas.height) { p.vy *= -0.98; p.y = Math.max(0, Math.min(canvas.height, p.y)) }
+
+          const dx = mx - p.x
+          const dy = my - p.y
+          const dist = Math.sqrt(dx * dx + dy * dy)
+          if (dist < 200) {
+            p.brightness = Math.min(1, p.brightness + 0.05)
+            p.vx += (dx / dist) * 0.015
+            p.vy += (dy / dist) * 0.015
+          } else {
+            p.brightness = Math.max(0, p.brightness - 0.02)
+          }
+          // Clamp velocity
+          const speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy)
+          if (speed > 0.6) { p.vx = (p.vx / speed) * 0.6; p.vy = (p.vy / speed) * 0.6 }
+        }
+      }
+
+      // Draw connections
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const a = particles[i]
+          const b = particles[j]
+          const dx = a.x - b.x
+          const dy = a.y - b.y
+          const dist = Math.sqrt(dx * dx + dy * dy)
+          if (dist < CONNECTION_DIST) {
+            const opacity = (1 - dist / CONNECTION_DIST) * 0.35
+            const isAmberLine = a.isAmber && b.isAmber
+            ctx.beginPath()
+            ctx.moveTo(a.x, a.y)
+            ctx.lineTo(b.x, b.y)
+            ctx.strokeStyle = isAmberLine
+              ? `rgba(200,151,90,${opacity})`
+              : `rgba(92,143,114,${opacity})`
+            ctx.lineWidth = 0.8
+            ctx.stroke()
+          }
+        }
+      }
+
+      // Draw nodes
+      for (const p of particles) {
+        const alpha = 0.3 + p.brightness * 0.5
+        const glowColor = p.isAmber ? `rgba(200,151,90,${alpha})` : `rgba(92,143,114,${alpha})`
+        ctx.beginPath()
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2)
+        ctx.fillStyle = glowColor
+        if (p.brightness > 0.5) {
+          ctx.shadowBlur = 8
+          ctx.shadowColor = p.isAmber ? 'rgba(200,151,90,0.6)' : 'rgba(92,143,114,0.6)'
+        } else {
+          ctx.shadowBlur = 0
+        }
+        ctx.fill()
+        ctx.shadowBlur = 0
+      }
+    }
+
+    if (prefersReduced) {
+      drawFrame()
+    } else {
+      const loop = () => {
+        drawFrame()
+        animId = requestAnimationFrame(loop)
+      }
+      animId = requestAnimationFrame(loop)
+    }
+
+    window.addEventListener('resize', resize, { passive: true })
+    return () => {
+      cancelAnimationFrame(animId)
+      window.removeEventListener('resize', resize)
+    }
+  }, [])
+
+  /* ─── Terminal state machine ─── */
+  useEffect(() => {
+    const steps = TERMINAL_STEPS[locale] ?? TERMINAL_STEPS['en']
+
+    // Clear all pending timeouts on re-run
+    timeoutsRef.current.forEach(clearTimeout)
+    timeoutsRef.current = []
+    setTerminalLines([])
+    setCurrentLine(0)
+    setTypedText('')
+    setPhase('typing')
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setTerminalLines(steps)
+      return
+    }
+
+    let lineIdx = 0
+    let charIdx = 0
+    let currentTyped = ''
+    let cancelled = false
+
+    const schedule = (fn: () => void, ms: number) => {
+      const id = setTimeout(() => { if (!cancelled) fn() }, ms)
+      timeoutsRef.current.push(id)
+    }
+
+    const typeNextChar = () => {
+      const step = steps[lineIdx]
+      if (charIdx < step.text.length) {
+        charIdx++
+        currentTyped = step.text.slice(0, charIdx)
+        setTypedText(currentTyped)
+        schedule(typeNextChar, 45)
+      } else {
+        // Line complete — push to completed lines
+        const completedStep = step
+        setTerminalLines(prev => [...prev, completedStep])
+        setTypedText('')
+        charIdx = 0
+        currentTyped = ''
+        lineIdx++
+        setCurrentLine(lineIdx)
+
+        if (lineIdx < steps.length) {
+          schedule(startNextLine, steps[lineIdx].delay)
+        } else {
+          // All lines done — pause then reset
+          schedule(() => {
+            setPhase('pausing')
+            schedule(() => {
+              setPhase('resetting')
+              schedule(() => {
+                lineIdx = 0
+                charIdx = 0
+                currentTyped = ''
+                setTerminalLines([])
+                setCurrentLine(0)
+                setTypedText('')
+                setPhase('typing')
+                schedule(startNextLine, steps[0].delay)
+              }, 300)
+            }, 2500)
+          }, 0)
+        }
+      }
+    }
+
+    const startNextLine = () => {
+      schedule(typeNextChar, 0)
+    }
+
+    schedule(startNextLine, steps[0].delay)
+
+    return () => {
+      cancelled = true
+      timeoutsRef.current.forEach(clearTimeout)
+    }
+  }, [locale])
+
+  const steps = TERMINAL_STEPS[locale] ?? TERMINAL_STEPS['en']
 
   return (
     <section
@@ -89,15 +338,12 @@ export default function HeroSection() {
         style={{ background: 'radial-gradient(600px circle at 50% 40%, rgba(200,151,90,0.04) 0%, transparent 70%)' }}
       />
 
-      {/* ─── Ambient orbs ─── */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="orb-1 blob-animate absolute -left-40 top-16 w-[560px] h-[560px] opacity-[0.18]"
-          style={{ background: 'radial-gradient(circle, rgba(92,143,114,0.5) 0%, transparent 70%)', borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%' }} />
-        <div className="orb-2 blob-animate absolute -right-32 bottom-16 w-[480px] h-[480px] opacity-[0.12]"
-          style={{ background: 'radial-gradient(circle, rgba(200,151,90,0.5) 0%, transparent 70%)', borderRadius: '30% 60% 70% 40% / 50% 60% 30% 60%', animationDelay: '-4s' }} />
-        <div className="absolute inset-0 opacity-[0.04]"
-          style={{ backgroundImage: 'radial-gradient(circle, rgba(92,143,114,0.8) 1px, transparent 1px)', backgroundSize: '48px 48px' }} />
-      </div>
+      {/* ─── Canvas neural network ─── */}
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 w-full h-full pointer-events-none z-0"
+        aria-hidden="true"
+      />
 
       {/* ─── Nexus SVG ─── */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -133,7 +379,6 @@ export default function HeroSection() {
 
       {/* ─── Content ─── */}
       <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-12 text-center pt-20">
-        {/* Wordmark — no uppercase (Tailwind uppercase was forcing PXNEXUS) */}
         <div className="mb-8 opacity-0" style={{ animation: 'fadeUp 0.6s ease 0.1s forwards' }}>
           <PxNexusWordmark
             variant="on-dark"
@@ -148,7 +393,7 @@ export default function HeroSection() {
           <span className="font-body text-xs text-sage-light tracking-wide">{t.hero.eyebrow}</span>
         </div>
 
-        {/* Headline — typewriter on line 2 */}
+        {/* Headline */}
         <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-light text-cream leading-[1.08] tracking-tight mb-6 opacity-0"
           style={{ animation: 'fadeUp 0.85s ease 0.5s forwards' }}>
           {t.hero.headline1}
@@ -192,6 +437,67 @@ export default function HeroSection() {
         </div>
       </div>
 
+      {/* ─── AI Terminal Demo Card (desktop only) ─── */}
+      <div className="hidden lg:block absolute right-8 xl:right-16 top-1/2 -translate-y-1/2 z-20 w-72 xl:w-80 opacity-0"
+        style={{ animation: 'fadeIn 0.8s ease 2.2s forwards' }}>
+        <div className="relative rounded-xl border border-sage/30 bg-forest-800/85 backdrop-blur-md p-4 ai-glow font-mono text-xs overflow-hidden">
+          {/* Scan line */}
+          <div className="scan-overlay" aria-hidden="true" />
+
+          {/* Top bar */}
+          <div className="flex items-center justify-between mb-3 pb-2 border-b border-sage/15">
+            <div className="flex items-center gap-1.5">
+              <div className="w-2 h-2 rounded-full bg-red-400/50" />
+              <div className="w-2 h-2 rounded-full bg-amber/40" />
+              <div className="w-2 h-2 rounded-full bg-sage/40" />
+            </div>
+            <span className="px-2 py-0.5 rounded-full bg-sage/15 border border-sage/25 text-sage-light text-[9px] tracking-wider uppercase">
+              AI Analysis
+            </span>
+          </div>
+
+          {/* Command line */}
+          <div className="text-sage/50 mb-3 leading-relaxed">
+            <span className="text-sage-light">$</span>{' '}
+            <span className="text-cream/40">pxnexus analyze --target hr-ops</span>
+          </div>
+
+          {/* Completed lines */}
+          {terminalLines.map((line, i) => (
+            <div key={i} className={cn(
+              'mb-1 leading-relaxed',
+              line.isSuccess ? 'text-sage-light' : 'text-cream/60'
+            )}>
+              <span className={line.isSuccess ? 'text-sage font-bold' : 'text-amber/70'}>
+                {line.prefix}
+              </span>
+              {line.text}
+            </div>
+          ))}
+
+          {/* Currently typing line */}
+          {phase !== 'resetting' && currentLine < steps.length && (
+            <div className="mb-1 leading-relaxed text-cream/60">
+              <span className="text-amber/70">{steps[currentLine].prefix}</span>
+              {typedText}
+              <span className="terminal-cursor" />
+            </div>
+          )}
+
+          {/* Progress bar */}
+          {phase !== 'resetting' && (
+            <div className="mt-3 pt-2 border-t border-sage/10">
+              <div className="h-0.5 rounded-full bg-forest-900/60 overflow-hidden">
+                <div
+                  className="h-full rounded-full bg-gradient-to-r from-sage to-sage-light transition-all duration-500 ease-out"
+                  style={{ width: `${Math.min(100, ((terminalLines.length) / steps.length) * 100)}%` }}
+                />
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+
       {/* ─── Trust chips ─── */}
       <div className="absolute bottom-10 left-6 hidden lg:flex items-center gap-2 px-4 py-2.5 rounded-xl bg-forest-800/60 backdrop-blur-sm border border-sage/12 opacity-0 hover:border-sage/25 transition-colors cursor-default"
         style={{ animation: 'fadeIn 0.8s ease 1.8s forwards' }}>
@@ -206,7 +512,7 @@ export default function HeroSection() {
           ))}
         </div>
         <span className="font-body text-xs text-cream/60 inline-flex items-center gap-1 flex-wrap justify-center">
-          <span>1,200+ teams hiring with</span>
+          <span>100+ companies redesigned with</span>
           <PxNexusWordmark variant="on-dark" className="font-display text-xs font-semibold" />
         </span>
       </div>

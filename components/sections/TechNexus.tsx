@@ -76,28 +76,43 @@ function NexusIcon({ active }: { active: boolean }) {
   )
 }
 
-/* ─── Animated flow arrow (horizontal) ─── */
-function FlowArrow({ active, reverse }: { active: boolean; reverse?: boolean }) {
+/* ─── Animated data-flow arrow (horizontal) ─── */
+function DataFlowArrow({ active, reverse }: { active: boolean; reverse?: boolean }) {
+  const dur = active ? '1.2s' : '2.4s'
+  const halfDur = active ? '0.6s' : '1.2s'
+  const pathId = reverse ? 'flowPath-r' : 'flowPath-f'
   return (
-    <div className={cn('flex items-center', reverse && 'flex-row-reverse')}>
-      <div className="relative h-px w-full overflow-hidden">
-        <div
-          className="absolute inset-0 h-px"
-          style={{ background: active ? 'linear-gradient(90deg, rgba(92,143,114,0.7), rgba(238,207,148,0.7))' : 'rgba(92,143,114,0.2)' , transition: 'background 0.4s ease' }}
+    <div className={cn('flex items-center w-full', reverse && 'flex-row-reverse')}>
+      <svg viewBox="0 0 80 8" preserveAspectRatio="none" className="w-full h-8" overflow="visible" aria-hidden="true">
+        <defs>
+          <path id={pathId} d="M 0 4 L 80 4" />
+        </defs>
+        {/* Static line */}
+        <line x1="0" y1="4" x2="80" y2="4"
+          stroke={active ? 'rgba(92,143,114,0.5)' : 'rgba(92,143,114,0.18)'}
+          strokeWidth="0.75"
+          style={{ transition: 'stroke 0.4s ease' }}
         />
-        {active && (
-          <div
-            className="absolute top-0 h-px w-8"
-            style={{
-              background: 'linear-gradient(90deg, transparent, white, transparent)',
-              animation: 'flowPulse 1.4s linear infinite',
-            }}
-          />
-        )}
-      </div>
-      <svg viewBox="0 0 10 10" fill="none" className={cn('w-3 h-3 flex-shrink-0', reverse && 'rotate-180')}>
-        <path d="M2 5h6M5 2l3 3-3 3" stroke={active ? '#7db090' : 'rgba(92,143,114,0.3)'} strokeWidth="1.5"
-          strokeLinecap="round" strokeLinejoin="round" style={{ transition: 'stroke 0.4s ease' }} />
+        {/* Packet 1 */}
+        <circle r="2" fill={active ? '#7db090' : 'rgba(92,143,114,0.3)'}
+          style={{ filter: active ? 'drop-shadow(0 0 3px rgba(92,143,114,0.8))' : 'none', transition: 'fill 0.4s ease' }}>
+          <animateMotion dur={dur} repeatCount="indefinite" begin="0s">
+            <mpath href={`#${pathId}`} />
+          </animateMotion>
+        </circle>
+        {/* Packet 2 — staggered */}
+        <circle r="1.5" fill={active ? 'rgba(92,143,114,0.6)' : 'rgba(92,143,114,0.15)'}
+          style={{ transition: 'fill 0.4s ease' }}>
+          <animateMotion dur={dur} repeatCount="indefinite" begin={halfDur}>
+            <mpath href={`#${pathId}`} />
+          </animateMotion>
+        </circle>
+        {/* Arrowhead */}
+        <path d={reverse ? 'M 5 2 L 0 4 L 5 6' : 'M 75 2 L 80 4 L 75 6'}
+          stroke={active ? '#7db090' : 'rgba(92,143,114,0.3)'}
+          strokeWidth="0.75" fill="none" strokeLinecap="round"
+          style={{ transition: 'stroke 0.4s ease' }}
+        />
       </svg>
     </div>
   )
@@ -181,9 +196,6 @@ export default function TechNexus() {
       <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(200,151,90,0.05) 0%, transparent 70%)' }} />
 
-      {/* Keyframe for flowing arrow */}
-      <style>{`@keyframes flowPulse { 0% { left: -2rem; } 100% { left: calc(100% + 2rem); } }`}</style>
-
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
 
         {/* ─── Header ─── */}
@@ -255,7 +267,7 @@ export default function TechNexus() {
 
             {/* Arrow: Company → Nexus */}
             <div className="hidden lg:flex items-center px-3 w-20">
-              <FlowArrow active={isCompanyActive} />
+              <DataFlowArrow active={isCompanyActive} />
             </div>
             {/* Mobile arrow (vertical) */}
             <div className="flex lg:hidden justify-center py-1">
@@ -282,9 +294,11 @@ export default function TechNexus() {
 
               {/* Center badge */}
               <div className="flex justify-center mb-5">
-                <div className={cn('relative w-20 h-20 rounded-full flex items-center justify-center transition-all duration-400',
+                <div className={cn('relative w-20 h-20 rounded-full flex items-center justify-center transition-all duration-400 overflow-hidden',
                   isNexusActive ? 'bg-amber/15 ring-2 ring-amber/30' : 'bg-amber/8 ring-1 ring-amber/15')}>
                   <NexusIcon active={isNexusActive} />
+                  {/* Scan line — always present, very subtle */}
+                  <div className="scan-overlay opacity-40" aria-hidden="true" style={{ animationDuration: '4s' }} />
                   {isNexusActive && (
                     <div className="absolute inset-0 rounded-full animate-ping opacity-20"
                       style={{ background: 'radial-gradient(circle, rgba(238,207,148,0.3), transparent)' }} />
@@ -340,7 +354,7 @@ export default function TechNexus() {
 
             {/* Arrow: Nexus ← Talent */}
             <div className="hidden lg:flex items-center px-3 w-20">
-              <FlowArrow active={isTalentActive} reverse />
+              <DataFlowArrow active={isTalentActive} reverse />
             </div>
             {/* Mobile arrow (vertical) */}
             <div className="flex lg:hidden justify-center py-1">

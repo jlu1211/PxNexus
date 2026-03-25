@@ -25,142 +25,164 @@ const translations = {
             requestDemo: 'Request Demo'
         },
         hero: {
-            eyebrow: 'Hiring that actually feels right',
-            headline1: 'Find people who',
-            headline2: 'fit, stay, and grow.',
-            sub: 'PxNexus helps HR teams hire based on skills, values, and team culture — not just résumés.',
-            body: 'We built PxNexus because we believed hiring could be more thoughtful. More human. Less guesswork.',
-            cta1: 'See the Platform',
-            cta2: 'How It Works',
+            eyebrow: 'Consulting × AI × Implementation',
+            headline1: 'Redesigning HR',
+            headline2: 'from the ground up.',
+            sub: 'We deconstruct and redesign HR labor operations — combining consulting expertise and AI to create a new standard for sustainable HR operations.',
+            body: 'From people-dependent HR to operations that run on structure, autonomously.',
+            cta1: 'See Our Solutions',
+            cta2: 'The Px Framework',
             scroll: 'Scroll'
         },
         framework: {
-            eyebrow: 'The Framework',
-            headline: 'Three things we genuinely care about.',
-            sub: "In PxNexus, the P isn't just a letter. It's how we think about every person in every hire.",
-            footnote: 'Every placement is shaped by all three.',
+            eyebrow: 'Our Values',
+            headline: 'Five principles behind everything we do.',
+            sub: 'Deconstruct. Redesign. Implement. Every PxNexus engagement is grounded in these values.',
+            footnote: 'Every project is shaped by all five.',
             pillars: [
                 {
                     letter: 'P',
-                    label: 'People',
-                    tagline: 'Skills matter. So does the whole person.',
-                    description: "We look beyond credentials. Our matching surfaces candidates who don't just fill a role — they bring something to it. Capabilities, character, and how they want to grow.",
+                    label: 'Partner First',
+                    tagline: 'Every decision starts from client outcomes.',
+                    description: 'We orient every proposal, design decision, and implementation choice around what actually moves the needle for our clients — not what is easiest to deliver.',
                     features: [
-                        'Skills-first profiles',
-                        'Behavioral fit signals',
-                        'Long-term trajectory'
+                        'Outcome-driven proposals',
+                        'Long-term partnerships',
+                        'Transparent communication'
                     ]
                 },
                 {
                     letter: 'P',
-                    label: 'Philosophy',
-                    tagline: "Culture fit isn't a buzzword here.",
-                    description: "We actually measure it. Our culture-matching engine maps how a candidate's values and working style align with your team — so you're not just guessing.",
+                    label: 'Process Intelligence',
+                    tagline: 'We break down operations and understand them as structures.',
+                    description: 'Before redesigning anything, we deconstruct it. We map every workflow, identify every manual dependency, and turn implicit knowledge into explicit, transferable structure.',
                     features: [
-                        'Values-based matching',
-                        'Team culture profiling',
-                        'Compatibility scoring'
+                        'Structural process analysis',
+                        'People-dependency mapping',
+                        'Redesignable operations'
                     ],
                     featured: true
                 },
                 {
                     letter: 'P',
-                    label: 'Passion',
-                    tagline: 'Engaged people do better work. Fact.',
-                    description: 'We help you look past the interview performance to find what someone is genuinely excited about — because that energy is exactly what great teams run on.',
+                    label: 'People by Design',
+                    tagline: 'We design systems so people can focus on creating value.',
+                    description: 'Every process we redesign has one goal: free people from repetitive admin so they can do the work that actually matters. People are not a resource to manage — they are the reason the system exists.',
                     features: [
-                        'Engagement signals',
-                        'Growth pathway mapping',
-                        'Retention indicators'
+                        'Human-centered design',
+                        'Value-creation focus',
+                        'Admin elimination'
+                    ]
+                },
+                {
+                    letter: 'P',
+                    label: 'Proof over Promises',
+                    tagline: 'We build trust through implementation and results, not promises.',
+                    description: "We don't win business with polished decks. We win it by delivering. Every engagement is measured against outcomes — and if something isn't working, we say so and fix it.",
+                    features: [
+                        'Results-first culture',
+                        'Transparent progress tracking',
+                        'Outcome accountability'
+                    ]
+                },
+                {
+                    letter: 'P',
+                    label: 'Pioneer New Standards',
+                    tagline: 'We continuously create new standards for HR operations.',
+                    description: 'We do not just fix today\'s problems. We build the operational standards that will define how HR runs tomorrow — sustainable, scalable, and independent of any one person.',
+                    features: [
+                        'Industry standard redefinition',
+                        'Continuous improvement cycles',
+                        'Sustainable operations design'
                     ]
                 }
             ]
         },
         tech: {
-            eyebrow: 'The Platform',
-            headline: "Here's how the matching actually works.",
-            sub: "There's no black box. We'll show you exactly what signals we use, how we weight them, and why.",
+            eyebrow: 'Solutions',
+            headline: 'How we rebuild HR operations with AI and consulting.',
+            sub: "No black box. From process analysis to implementation — everything is transparent.",
             features: [
                 {
-                    title: 'Smart Match Engine',
-                    description: 'We look at 140+ signals across skills, values, working style, and growth potential — and show you why each match scores the way it does.'
+                    title: 'Operations Audit',
+                    description: 'We deconstruct your current HR processes to identify bottlenecks, manual dependencies, and structural inefficiencies — and show you exactly what needs to change.'
                 },
                 {
-                    title: 'Live Culture Profiles',
-                    description: 'Your team culture map updates continuously based on real behavioral signals, not annual surveys. It reflects who your team actually is.'
+                    title: 'Process Redesign',
+                    description: 'We redesign workflows from the ground up — eliminating manual steps and building operations that run autonomously, regardless of who is on the team.'
                 },
                 {
-                    title: 'Retention Risk Alerts',
-                    description: 'Spot potential flight risk 60–90 days early. Not to surveil people — but to give managers a chance to have a real conversation before it\'s too late.'
+                    title: 'AI Implementation',
+                    description: 'We deploy custom AI tools that handle repetitive HR tasks, freeing your team to focus entirely on value creation rather than administration.'
                 },
                 {
-                    title: 'Works with your tools',
-                    description: 'Connects with Workday, BambooHR, SAP SuccessFactors, and 30+ HRIS platforms. Your team keeps working the way they already do.'
+                    title: 'Operations Standards',
+                    description: 'We build the documentation and standards that keep HR running consistently — even when people change. Sustainable by design.'
                 }
             ],
             stats: [
                 {
-                    value: '140+',
-                    label: 'Match Signals'
+                    value: '100+',
+                    label: 'Projects Delivered'
                 },
                 {
-                    value: '92%',
-                    label: 'Placement Accuracy'
+                    value: '95%',
+                    label: 'Client Satisfaction'
                 },
                 {
-                    value: '2.1×',
-                    label: 'Faster to Hire'
+                    value: '60%',
+                    label: 'Workload Reduction'
                 }
             ],
-            cta: 'Request a Demo'
+            cta: 'Request a Free Audit'
         },
         trust: {
-            eyebrow: 'Why It Works',
-            quote: "We're a small team that takes this seriously. When a hire works out — when someone finds a place they belong — that's what we built this for.",
+            eyebrow: 'Why PxNexus',
+            quote: "We're HR operations specialists. Not just consultants. Not just tool vendors. We deconstruct, redesign, and see it through to implementation — and we take full ownership of the outcome.",
             attribution: '— The PxNexus Team',
             stats: [
                 {
-                    value: '1,200+',
-                    label: 'Organizations',
-                    sub: 'across 18 industries'
+                    value: '100+',
+                    label: 'Projects Delivered',
+                    sub: 'across industries and company sizes'
                 },
                 {
-                    value: '94%',
-                    label: 'Retention at 1 Year',
-                    sub: 'vs. 67% industry avg.'
+                    value: '95%',
+                    label: 'Client Satisfaction',
+                    sub: 'post-project survey'
                 },
                 {
-                    value: '48K+',
-                    label: 'Placements Made',
-                    sub: 'since 2019'
+                    value: '60%',
+                    label: 'Workload Reduction',
+                    sub: 'average across engagements'
                 },
                 {
                     value: '4.9 / 5',
                     label: 'Client Rating',
-                    sub: 'based on 3,400 reviews'
+                    sub: 'based on project reviews'
                 }
             ],
             testimonials: [
                 {
-                    quote: "PxNexus changed how we think about hiring. We stopped looking for the perfect CV and started looking for the right person. Big difference.",
+                    quote: "Thanks to PxNexus, our HR processes no longer depend on any one person. Operations run smoothly even when team members change — that was the real transformation.",
                     author: 'Mia Hartmann',
-                    role: 'Chief People Officer, Brightloop'
+                    role: 'HR Director, Brightloop Inc.'
                 },
                 {
-                    quote: "The culture-fit tool surfaced a candidate we almost skipped. That person is now our highest-performing team lead, 18 months in.",
+                    quote: "What sets PxNexus apart is the end-to-end approach. They don't just advise, and they don't just hand you a tool. They deconstruct, redesign, and implement alongside you.",
                     author: 'David Sato',
-                    role: 'VP of Talent, Meridian Manufacturing'
+                    role: 'COO, Meridian Corp.'
                 }
             ]
         },
         form: {
-            eyebrow: 'Get in Touch',
-            headline: "Let's have\na conversation.",
-            sub: "No hard sell, no 47-email sequence. Just a friendly call to see if we're a good fit for what you're trying to do.",
+            eyebrow: "Let's Talk",
+            headline: "Tell us about your\nHR operations.",
+            sub: "No hard sell. Tell us about your current HR setup and we'll help you identify exactly what needs to change.",
             steps: [
-                'A 30-minute discovery call with a real human',
-                'A platform walkthrough tailored to your goals',
-                'A free culture audit of your current team'
+                'A 30-minute free discovery call with a specialist',
+                'A solution proposal tailored to your challenges',
+                'A free quick audit of your key HR processes'
             ],
             stepsLabel: 'What happens next',
             fields: {
@@ -177,41 +199,41 @@ const translations = {
                 ],
                 sizeDefault: 'Select size',
                 message: 'Anything else?',
-                messagePlaceholder: "What's your biggest hiring challenge right now?",
+                messagePlaceholder: "What's your biggest HR operations challenge right now?",
                 intent: "What are you hoping to solve?",
                 intents: [
-                    'Find better-fit candidates',
-                    'Reduce early turnover',
-                    'Improve culture alignment',
-                    'Replace our current ATS',
-                    'Just curious'
+                    'Systematize people-dependent processes',
+                    'Automate HR tasks with AI',
+                    'Redesign our entire HR operations',
+                    'Improve a specific process',
+                    'Just exploring for now'
                 ]
             },
             submit: 'Send Message',
             submitting: 'Sending...',
             disclaimer: 'No spam. Unsubscribe anytime.',
             successTitle: "We'll be in touch soon.",
-            successBody: 'Thanks for reaching out. A real person on our team will reply within one business day.'
+            successBody: 'Thanks for reaching out. A specialist on our team will reply within one business day.'
         },
         footer: {
-            tagline: 'Built for the people doing the hiring — and the people being hired.',
+            tagline: 'Creating a new standard for sustainable HR operations.',
             categories: {
                 Platform: [
-                    'Talent Matching',
-                    'Culture Profiling',
-                    'Analytics',
-                    'Integrations'
+                    'Operations Audit',
+                    'AI Implementation',
+                    'Operations Design',
+                    'Standardization'
                 ],
                 Company: [
                     'About Us',
-                    'Our Story',
+                    'Mission & Vision',
                     'Careers',
                     'Press'
                 ],
                 Resources: [
                     'Blog',
                     'Case Studies',
-                    'HR Guides',
+                    'HR Operations Guide',
                     'Docs'
                 ],
                 Legal: [
@@ -226,7 +248,7 @@ const translations = {
                 'Email'
             ],
             copyright: '© 2026 PxNexus. All rights reserved.',
-            missionLine: '"Find people who fit, stay, and grow."'
+            missionLine: '"Redesigning HR, from the ground up."'
         }
     },
     ja: {
@@ -241,142 +263,164 @@ const translations = {
             requestDemo: '無料デモを申込む'
         },
         hero: {
-            eyebrow: '採用を、もっと人間らしく',
-            headline1: 'フィットする人材と、',
-            headline2: 'ちゃんとつながろう。',
-            sub: 'PxNexusは、スキルだけでなく価値観やチームカルチャーを基に採用マッチングを実現するプラットフォームです。',
-            body: '採用は、単なる穴埋めではありません。私たちは、もっと丁寧で、人間らしい採用ができると信じています。',
-            cta1: 'プラットフォームを見る',
-            cta2: '仕組みを知る',
+            eyebrow: 'コンサルティング × AI × 実装',
+            headline1: '人事労務を、',
+            headline2: '再設計する。',
+            sub: '人事労務業務を分解・再設計し、コンサルティングとAIの力で、持続可能な人事オペレーションの新しい標準を創る。',
+            body: '人に依存した人事労務から、構造で自律的に回るオペレーションへ。',
+            cta1: 'ソリューションを見る',
+            cta2: 'Pxフレームワークとは',
             scroll: 'スクロール'
         },
         framework: {
-            eyebrow: 'フレームワーク',
-            headline: '私たちが大切にする3つのこと。',
-            sub: 'PxNexusの「P」はひとつの言葉ではありません。すべての採用に込めた、私たちの考え方です。',
-            footnote: 'すべての採用は、この3つの視点から考えます。',
+            eyebrow: 'Our Values',
+            headline: '私たちが大切にする5つの価値観。',
+            sub: '分解し、再設計し、実装する。PxNexusのすべての行動原理がここにあります。',
+            footnote: 'すべてのプロジェクトに、この価値観を込めて。',
             pillars: [
                 {
                     letter: 'P',
-                    label: 'People（人）',
-                    tagline: 'スキルも大事。でも、人全体を見る。',
-                    description: '経歴書だけで判断しません。能力・人柄・成長意欲を総合的に評価し、単に役割を埋めるだけでなく、チームに貢献できる人材を見つけます。',
+                    label: 'Partner First',
+                    tagline: 'すべての意思決定を、顧客成果から始める。',
+                    description: 'どんな提案も、設計判断も、実装の選択も、「クライアントにとって何が本当に価値か」を出発点にします。提供のしやすさではなく、成果を基準に動く。',
                     features: [
-                        'スキル重視のプロフィール',
-                        '行動特性の分析',
-                        '長期的な成長予測'
+                        '顧客成果ドリブンな提案',
+                        '長期パートナーシップ',
+                        '透明なコミュニケーション'
                     ]
                 },
                 {
                     letter: 'P',
-                    label: 'Philosophy（理念）',
-                    tagline: 'カルチャーフィットは、本当に重要です。',
-                    description: '価値観やワークスタイルが、チームと実際にどれだけ合っているかを測定します。「なんとなく合いそう」ではなく、データで示します。',
+                    label: 'Process Intelligence',
+                    tagline: '業務を分解し、構造として捉える。',
+                    description: '再設計の前に、まず分解する。すべての業務フローをマッピングし、属人的な依存関係を特定し、暗黙知を明示的な構造に変換します。',
                     features: [
-                        '価値観ベースのマッチング',
-                        'チームカルチャーのプロファイリング',
-                        '相性スコアの算出'
+                        'プロセスの構造的分析',
+                        '属人化リスクの可視化',
+                        '再設計可能な業務設計'
                     ],
                     featured: true
                 },
                 {
                     letter: 'P',
-                    label: 'Passion（情熱）',
-                    tagline: '情熱のある人は、より良い仕事をします。',
-                    description: '面接での演技ではなく、本当に何に夢中になれるかを見つけます。そのエネルギーこそが、良いチームを動かす源泉だからです。',
+                    label: 'People by Design',
+                    tagline: '人が価値創出に集中できる仕組みを設計する。',
+                    description: '私たちが再設計するすべてのプロセスには、ひとつの目標があります。反復的な管理業務から人を解放し、本当に意味のある仕事に集中できるようにすること。人はリソースではなく、仕組みが存在する理由そのものです。',
                     features: [
-                        'エンゲージメント指標',
-                        'キャリアパスのマッピング',
-                        '定着率シグナル'
+                        '人間中心の設計',
+                        '価値創出への集中',
+                        '管理業務の排除'
+                    ]
+                },
+                {
+                    letter: 'P',
+                    label: 'Proof over Promises',
+                    tagline: '約束ではなく、実装と成果で信頼を築く。',
+                    description: '私たちは磨き上げたプレゼンで受注しません。実装して、届けることで信頼を得ます。すべてのプロジェクトは成果で評価され、うまくいかないことがあれば正直に伝えて修正します。',
+                    features: [
+                        '成果ファーストの文化',
+                        '透明な進捗管理',
+                        'アウトカムへのコミット'
+                    ]
+                },
+                {
+                    letter: 'P',
+                    label: 'Pioneer New Standards',
+                    tagline: '人事労務オペレーションの新しい標準を創り続ける。',
+                    description: '今日の問題を解決するだけでなく、明日の人事労務がどうあるべきかを定義するオペレーション標準を築きます。持続可能で、スケーラブルで、属人化しない。',
+                    features: [
+                        '業界標準の再定義',
+                        '継続的改善サイクル',
+                        '持続可能なオペレーション設計'
                     ]
                 }
             ]
         },
         tech: {
-            eyebrow: 'プラットフォーム',
-            headline: 'マッチングの仕組みを、正直に説明します。',
-            sub: 'ブラックボックスはありません。どのシグナルをどう重み付けしているか、すべて開示しています。',
+            eyebrow: 'ソリューション',
+            headline: 'AIとコンサルで、人事労務を再構築する。',
+            sub: 'ブラックボックスなし。プロセスの分析から実装まで、すべてを透明に進めます。',
             features: [
                 {
-                    title: 'スマートマッチエンジン',
-                    description: 'スキル・価値観・働き方・成長性など140以上のシグナルを分析し、各マッチのスコアの理由も明確に示します。'
+                    title: '業務プロセス診断',
+                    description: '現状の人事労務プロセスを分解し、ボトルネック・属人化・構造的非効率を特定します。何を変えるべきか、明確に示します。'
                 },
                 {
-                    title: 'リアルタイムカルチャープロファイル',
-                    description: '年1回のアンケートではなく、日常の行動データからチームのカルチャーマップをリアルタイムで更新します。'
+                    title: 'プロセス再設計',
+                    description: 'ゼロから業務フローを再設計。手動作業を削減し、担当者が変わっても自律的に回るオペレーションを構築します。'
                 },
                 {
-                    title: '離職リスクアラート',
-                    description: '離職の可能性を60〜90日前に検知します。監視ではなく、マネージャーが適切なタイミングで会話できるようにするためです。'
+                    title: 'AI実装・自動化',
+                    description: '反復的な人事タスクを処理するカスタムAIツールを導入。チームが管理業務ではなく、価値創出に集中できる環境を整えます。'
                 },
                 {
-                    title: '既存ツールと連携',
-                    description: 'Workday・BambooHR・SAP SuccessFactorsなど30以上のHRISに対応。今の業務フローを変える必要はありません。'
+                    title: 'オペレーション標準化',
+                    description: '人が変わっても業務が継続できる、ドキュメントと標準を構築します。持続可能な仕組みを資産として残します。'
                 }
             ],
             stats: [
                 {
-                    value: '140+',
-                    label: 'マッチングシグナル'
+                    value: '100+',
+                    label: 'プロジェクト実績'
                 },
                 {
-                    value: '92%',
-                    label: 'マッチング精度'
+                    value: '95%',
+                    label: 'クライアント満足度'
                 },
                 {
-                    value: '2.1×',
-                    label: '採用スピード向上'
+                    value: '60%',
+                    label: '業務工数削減'
                 }
             ],
-            cta: 'デモを申し込む'
+            cta: '無料診断を申し込む'
         },
         trust: {
-            eyebrow: 'なぜ機能するのか',
-            quote: '私たちは小さなチームですが、この仕事を真剣に考えています。採用がうまくいくとき——誰かが「ここだ」と思える場所に出会うとき——それが私たちの原動力です。',
+            eyebrow: 'なぜ選ばれるのか',
+            quote: '私たちは人事労務オペレーションの専門家です。コンサルティングだけでもなく、ツール導入だけでもない。分解して、再設計して、実装まで責任を持って取り組みます。',
             attribution: '— PxNexusチーム一同',
             stats: [
                 {
-                    value: '1,200+',
-                    label: '導入企業数',
-                    sub: '18業界にわたる'
+                    value: '100+',
+                    label: 'プロジェクト実績',
+                    sub: '様々な業種・規模で'
                 },
                 {
-                    value: '94%',
-                    label: '入社1年後の定着率',
-                    sub: '業界平均67%比'
+                    value: '95%',
+                    label: 'クライアント満足度',
+                    sub: 'プロジェクト後アンケート'
                 },
                 {
-                    value: '48,000+',
-                    label: '採用成功数',
-                    sub: '2019年の創業以来'
+                    value: '60%',
+                    label: '業務工数削減',
+                    sub: 'プロジェクト平均'
                 },
                 {
                     value: '4.9 / 5',
                     label: 'クライアント評価',
-                    sub: '3,400件のレビュー'
+                    sub: 'レビューに基づく'
                 }
             ],
             testimonials: [
                 {
-                    quote: 'PxNexusを使い始めてから、採用の考え方が変わりました。「完璧な経歴」より「この人と働きたいか」を大切にするようになったんです。',
+                    quote: 'PxNexusのおかげで、特定の担当者に依存していた人事労務プロセスが、誰でも回せる仕組みになりました。担当者が変わっても業務が止まらない。それが本当の変化でした。',
                     author: '田中 美咲',
-                    role: '最高人事責任者・Brightloop株式会社'
+                    role: '人事部長・Brightloop株式会社'
                 },
                 {
-                    quote: 'カルチャーフィット機能で、本来ならスキップしていた候補者が目に留まりました。その方は今、18ヶ月経った今もトップパフォーマーです。',
+                    quote: '「コンサルだけ」「ツールだけ」ではなく、分解→再設計→実装まで一貫してやってもらえる。そのEnd-to-Endのアプローチがほかにはないと思います。',
                     author: '佐藤 大輔',
-                    role: '採用担当VP・メリディアン製造'
+                    role: '管理部長・メリディアン株式会社'
                 }
             ]
         },
         form: {
-            eyebrow: 'お問い合わせ',
-            headline: 'まず、話してみませんか？',
-            sub: '強引なセールスはしません。あなたの状況を聞かせてください。私たちがお役に立てるか、一緒に考えます。',
+            eyebrow: 'まず、話しましょう',
+            headline: '人事労務の\n現状を聞かせてください。',
+            sub: '強引なセールスはしません。御社の人事労務の現状を教えてください。一緒に課題を整理します。',
             steps: [
-                '担当者との30分のヒアリングコール',
-                'あなたの目標に合わせたプラットフォームのご案内',
-                '現在のチームの無料カルチャー診断'
+                '専門担当者との30分の無料ヒアリングコール',
+                '課題に合わせたソリューション提案',
+                '主要プロセスの無料簡易診断'
             ],
             stepsLabel: 'ご連絡後の流れ',
             fields: {
@@ -393,13 +437,13 @@ const translations = {
                 ],
                 sizeDefault: '選択してください',
                 message: 'その他ご連絡事項',
-                messagePlaceholder: '現在の採用課題があれば、ぜひ教えてください。',
-                intent: '解決したいことを教えてください',
+                messagePlaceholder: '現在の人事労務の課題があれば教えてください。',
+                intent: "解決したい課題を教えてください",
                 intents: [
-                    'より適した候補者を見つけたい',
-                    '早期離職を減らしたい',
-                    'カルチャーフィットを改善したい',
-                    '現在のATSを切り替えたい',
+                    '属人化した業務を仕組み化したい',
+                    '人事労務のAI化・自動化を進めたい',
+                    'オペレーション全体を再設計したい',
+                    '特定プロセスの効率化',
                     'まずは情報収集'
                 ]
             },
@@ -407,27 +451,27 @@ const translations = {
             submitting: '送信中...',
             disclaimer: 'スパムはしません。いつでも登録解除できます。',
             successTitle: '近日中にご連絡します。',
-            successBody: 'お問い合わせありがとうございます。チームのメンバーが1営業日以内にご返信します。'
+            successBody: 'お問い合わせありがとうございます。担当者が1営業日以内にご返信します。'
         },
         footer: {
-            tagline: '採用する側にも、される側にも、誠実に。',
+            tagline: '持続可能な人事オペレーションの標準を、共に創る。',
             categories: {
                 Platform: [
-                    '人材マッチング',
-                    'カルチャー診断',
-                    'アナリティクス',
-                    '連携ツール'
+                    '業務プロセス診断',
+                    'AI実装',
+                    'オペレーション設計',
+                    '標準化支援'
                 ],
                 Company: [
-                    '会社情報',
-                    '私たちのストーリー',
+                    '会社概要',
+                    'ミッション・ビジョン',
                     '採用情報',
                     'プレス'
                 ],
                 Resources: [
                     'ブログ',
                     '事例紹介',
-                    'HRガイド',
+                    '人事労務ガイド',
                     'ドキュメント'
                 ],
                 Legal: [
@@ -442,7 +486,7 @@ const translations = {
                 'メール'
             ],
             copyright: '© 2026 PxNexus. All rights reserved.',
-            missionLine: '「フィットする人材と、ちゃんとつながろう。」'
+            missionLine: '「人事労務を、再設計する。」'
         }
     }
 };
